@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma bulle de recommandation</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="welcome-screen" id="welcome-screen">
+      <div class="welcome-content">
+        <h1>Ma bulle de recommandation</h1>
+        <button class="primary-button" type="button" id="start-button">On y va !</button>
+      </div>
+    </section>
+
+    <section class="activity-screen is-hidden" id="activity-screen">
+      <header class="app-header">
+        <div>
+          <h1>J'aimerais te connaître un peu mieux</h1>
+          <p class="intro">Choisis les vidéos que tu regarderais.</p>
+        </div>
+        <aside class="progress-card" aria-live="polite">
+          <span class="progress-label">Réponses</span>
+          <strong id="progress-count">0 / 0</strong>
+        </aside>
+      </header>
+
+      <main class="app-main">
+        <section class="toolbar" aria-label="État de l'activité">
+          <div>
+            <h2>Données d'entraînement</h2>
+            <p id="status-text">Sélectionne une réponse pour chaque vidéo.</p>
+          </div>
+          <button class="secondary-button" type="button" id="reset-button">Réinitialiser</button>
+        </section>
+
+        <section class="video-list" id="video-list" aria-label="Liste des vidéos"></section>
+
+        <section class="next-step">
+          <button class="primary-button" type="button" id="train-button" disabled>Entraînons le modèle</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="training-screen is-hidden" id="training-screen">
+      <div class="training-content">
+        <h1>Entraînement du modèle</h1>
+        <div class="training-panel">
+          <button class="primary-button" type="button" id="run-training-button">Entraîner</button>
+          <div class="training-progress" aria-label="Progression de l'entraînement">
+            <div class="training-progress-bar" id="training-progress-bar"></div>
+          </div>
+          <p class="training-status" id="training-status">Le modèle est prêt à apprendre à partir de tes choix.</p>
+          <button class="primary-button" type="button" id="test-model-button" disabled>Tester le modèle</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="test-screen is-hidden" id="test-screen">
+      <header class="app-header">
+        <div>
+          <h1>Test du modèle</h1>
+          <p class="intro">Choisis ce que tu ferais, puis compare ta réponse avec celle de l'IA.</p>
+        </div>
+        <aside class="progress-card" aria-live="polite">
+          <span class="progress-label">Test</span>
+          <strong id="test-progress-count">1 / 5</strong>
+        </aside>
+      </header>
+
+      <main class="app-main">
+        <section class="single-video-list" id="test-video-container" aria-label="Vidéo à tester"></section>
+        <section class="model-result is-hidden" id="model-result" aria-live="polite"></section>
+        <section class="score-result is-hidden" id="score-result" aria-live="polite"></section>
+        <section class="next-step">
+          <button class="primary-button" type="button" id="next-test-video-button" disabled>Vidéo suivante</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="vacation-screen is-hidden" id="vacation-screen" aria-label="Vacances"></section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
