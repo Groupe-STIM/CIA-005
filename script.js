@@ -1,21 +1,35 @@
 const welcomeScreen = document.querySelector("#welcome-screen");
+const bubbleLayer = document.querySelector("#bubble-layer");
 const activityScreen = document.querySelector("#activity-screen");
 const trainingScreen = document.querySelector("#training-screen");
 const testScreen = document.querySelector("#test-screen");
+const recommendationsScreen = document.querySelector("#recommendations-screen");
 const vacationScreen = document.querySelector("#vacation-screen");
 const startButton = document.querySelector("#start-button");
+const readyButton = document.querySelector("#ready-button");
 const trainButton = document.querySelector("#train-button");
 const runTrainingButton = document.querySelector("#run-training-button");
 const testModelButton = document.querySelector("#test-model-button");
+const testReadyButton = document.querySelector("#test-ready-button");
 const trainingProgressBar = document.querySelector("#training-progress-bar");
 const trainingStatus = document.querySelector("#training-status");
 const testVideoContainer = document.querySelector("#test-video-container");
-const testProgressCount = document.querySelector("#test-progress-count");
 const modelResult = document.querySelector("#model-result");
 const scoreResult = document.querySelector("#score-result");
 const nextTestVideoButton = document.querySelector("#next-test-video-button");
+const runRecommendationsButton = document.querySelector("#run-recommendations-button");
+const recommendationProgress = document.querySelector("#recommendation-progress");
+const recommendationProgressBar = document.querySelector("#recommendation-progress-bar");
+const recommendationStatus = document.querySelector("#recommendation-status");
+const recommendationsList = document.querySelector("#recommendations-list");
+const recommendationsIntro = document.querySelector(".recommendations-intro");
+const vacationStep = document.querySelector("#vacation-step");
+const vacationButton = document.querySelector("#vacation-button");
+const activityMain = document.querySelector("#activity-main");
+const activityIntro = document.querySelector(".activity-intro");
+const testMain = document.querySelector("#test-main");
+const testIntro = document.querySelector(".test-intro");
 const videoList = document.querySelector("#video-list");
-const progressCount = document.querySelector("#progress-count");
 const statusText = document.querySelector("#status-text");
 const resetButton = document.querySelector("#reset-button");
 
@@ -25,6 +39,27 @@ let trainedModel = null;
 let selectedTestVideos = [];
 let currentTestIndex = 0;
 let correctTestCount = 0;
+const recommendedVideoIds = new Set();
+
+function createWelcomeBubbles() {
+  const bubbleCount = 42;
+
+  for (let index = 0; index < bubbleCount; index += 1) {
+    const bubble = document.createElement("span");
+    const size = 14 + Math.random() * 54;
+    const drift = -40 + Math.random() * 80;
+    const duration = 12 + Math.random() * 14;
+    const delay = Math.random() * 12;
+
+    bubble.className = "bubble";
+    bubble.style.setProperty("--bubble-left", `${Math.random() * 100}%`);
+    bubble.style.setProperty("--bubble-size", `${size}px`);
+    bubble.style.setProperty("--bubble-drift", `${drift}px`);
+    bubble.style.setProperty("--bubble-duration", `${duration}s`);
+    bubble.style.setProperty("--bubble-delay", `-${delay}s`);
+    bubbleLayer.appendChild(bubble);
+  }
+}
 
 function shuffleVideos(videos) {
   const shuffledVideos = [...videos];
@@ -99,7 +134,6 @@ function updateProgress() {
   const answeredCount = responses.size;
   const totalCount = trainingVideos.length;
   const isComplete = answeredCount === totalCount;
-  progressCount.textContent = `${answeredCount} / ${totalCount}`;
   trainButton.disabled = !isComplete;
 
   if (isComplete) {
@@ -161,7 +195,24 @@ function getChoiceLabel(choice) {
 function createVideoCard(video, radioName) {
   const card = document.createElement("article");
   card.className = "video-card";
+  card.classList.toggle("is-recommendation", !radioName);
   card.dataset.videoId = video.id;
+
+  const choices = radioName
+    ? `
+      <fieldset class="choice-group" aria-label="Choix pour ${video.titre}">
+        <legend>Ton choix</legend>
+        <label class="choice choice-watch">
+          <input type="radio" name="${radioName}" value="watch">
+          <span>✅ Je regarde</span>
+        </label>
+        <label class="choice choice-skip">
+          <input type="radio" name="${radioName}" value="skip">
+          <span>❌ Je passe</span>
+        </label>
+      </fieldset>
+    `
+    : "";
 
   card.innerHTML = `
     <div class="video-main">
@@ -185,33 +236,46 @@ function createVideoCard(video, radioName) {
         </div>
       </dl>
     </div>
-    <fieldset class="choice-group" aria-label="Choix pour ${video.titre}">
-      <legend>Ton choix</legend>
-      <label class="choice choice-watch">
-        <input type="radio" name="${radioName}" value="watch">
-        <span>✅ Je regarde</span>
-      </label>
-      <label class="choice choice-skip">
-        <input type="radio" name="${radioName}" value="skip">
-        <span>❌ Je passe</span>
-      </label>
-    </fieldset>
+    ${choices}
   `;
 
   return card;
+}
+
+function renderRecommendations() {
+  const testedVideoIds = new Set(selectedTestVideos.map((video) => video.id));
+  const recommendedVideos = shuffleVideos(testVideos)
+    .filter((video) => !testedVideoIds.has(video.id))
+    .filter((video) => !recommendedVideoIds.has(video.id))
+    .filter((video) => predictChoice(video).choice === "watch")
+    .slice(0, 5);
+
+  recommendationsList.innerHTML = "";
+
+  if (recommendedVideos.length === 0) {
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "empty-message";
+    emptyMessage.textContent = "L'IA n'a plus de nouvelles vidéos à recommander pour le moment.";
+    recommendationsList.appendChild(emptyMessage);
+    return;
+  }
+
+  recommendedVideos.forEach((video) => {
+    recommendedVideoIds.add(video.id);
+    recommendationsList.appendChild(createVideoCard(video));
+  });
 }
 
 function renderTestVideo() {
   const video = selectedTestVideos[currentTestIndex];
   testVideoContainer.innerHTML = "";
   testVideoContainer.appendChild(createVideoCard(video, "test-video-choice"));
-  testProgressCount.textContent = `${currentTestIndex + 1} / ${selectedTestVideos.length}`;
   modelResult.classList.add("is-hidden");
   modelResult.innerHTML = "";
   scoreResult.classList.add("is-hidden");
   scoreResult.innerHTML = "";
   nextTestVideoButton.disabled = true;
-  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Je pars en vacances!" : "Vidéo suivante";
+  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Mes recommandations personnalisées" : "Vidéo suivante";
 }
 
 function startModelTest() {
@@ -220,6 +284,8 @@ function startModelTest() {
   correctTestCount = 0;
   trainingScreen.classList.add("is-hidden");
   testScreen.classList.remove("is-hidden");
+  testReadyButton.classList.remove("is-hidden");
+  testMain.classList.add("is-hidden");
   renderTestVideo();
 }
 
@@ -250,6 +316,13 @@ resetButton.addEventListener("click", () => {
 startButton.addEventListener("click", () => {
   welcomeScreen.classList.add("is-hidden");
   activityScreen.classList.remove("is-hidden");
+  readyButton.focus();
+});
+
+readyButton.addEventListener("click", () => {
+  readyButton.classList.add("is-hidden");
+  activityIntro.textContent = "Afin de pouvoir te recommander des vidéos qui pourraient te plaire, notre IA a besoin de te connaître un peu mieux. Elle te présentera une série de vidéos et, pour chacune d'elles, tu devras lui indiquer si tu regardes ou si tu passes.";
+  activityMain.classList.remove("is-hidden");
   document.querySelector(".video-card input")?.focus();
 });
 
@@ -277,6 +350,13 @@ runTrainingButton.addEventListener("click", () => {
 });
 
 testModelButton.addEventListener("click", startModelTest);
+
+testReadyButton.addEventListener("click", () => {
+  testReadyButton.classList.add("is-hidden");
+  testIntro.textContent = "Maintenant que tu as entraîné le modèle d'IA, nous allons le tester. Nous allons afficher quelques vidéos. Choisis ce que tu ferais, puis nous comparerons ta réponse avec celle de l'IA.";
+  testMain.classList.remove("is-hidden");
+  document.querySelector('#test-video-container input[type="radio"]')?.focus();
+});
 
 testVideoContainer.addEventListener("change", (event) => {
   const input = event.target;
@@ -323,7 +403,14 @@ testVideoContainer.addEventListener("change", (event) => {
 nextTestVideoButton.addEventListener("click", () => {
   if (currentTestIndex >= selectedTestVideos.length - 1) {
     testScreen.classList.add("is-hidden");
-    vacationScreen.classList.remove("is-hidden");
+    recommendationsList.classList.add("is-hidden");
+    recommendationProgress.classList.add("is-hidden");
+    recommendationStatus.classList.add("is-hidden");
+    recommendationProgressBar.style.width = "0%";
+    runRecommendationsButton.disabled = false;
+    vacationStep.classList.add("is-hidden");
+    vacationButton.disabled = true;
+    recommendationsScreen.classList.remove("is-hidden");
     return;
   }
 
@@ -331,6 +418,40 @@ nextTestVideoButton.addEventListener("click", () => {
   renderTestVideo();
 });
 
+runRecommendationsButton.addEventListener("click", () => {
+  runRecommendationsButton.disabled = true;
+  recommendationsIntro.textContent = "D'après ce que j'ai appris de toi, je peux te faire des recommandations de vidéos qui pourront te plaire.";
+  recommendationsList.classList.add("is-hidden");
+  recommendationProgress.classList.remove("is-hidden");
+  recommendationStatus.classList.remove("is-hidden");
+  recommendationProgressBar.style.transition = "none";
+  recommendationProgressBar.style.width = "0%";
+  vacationStep.classList.add("is-hidden");
+  vacationButton.disabled = true;
+
+  requestAnimationFrame(() => {
+    recommendationProgressBar.offsetWidth;
+    recommendationProgressBar.style.transition = "";
+    recommendationProgressBar.style.width = "100%";
+  });
+
+  window.setTimeout(() => {
+    renderRecommendations();
+    recommendationProgress.classList.add("is-hidden");
+    recommendationStatus.classList.add("is-hidden");
+    recommendationsList.classList.remove("is-hidden");
+    runRecommendationsButton.disabled = false;
+    vacationStep.classList.remove("is-hidden");
+    vacationButton.disabled = false;
+  }, 3000);
+});
+
+vacationButton.addEventListener("click", () => {
+  recommendationsScreen.classList.add("is-hidden");
+  vacationScreen.classList.remove("is-hidden");
+});
+
 window.getTrainingResponses = getTrainingResponses;
 
+createWelcomeBubbles();
 renderVideos();

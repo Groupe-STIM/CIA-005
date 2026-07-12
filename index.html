@@ -8,6 +8,7 @@
   </head>
   <body>
     <section class="welcome-screen" id="welcome-screen">
+      <div class="bubble-layer" id="bubble-layer" aria-hidden="true"></div>
       <div class="welcome-content">
         <h1>Ma bulle de recommandation</h1>
         <button class="primary-button" type="button" id="start-button">On y va !</button>
@@ -16,17 +17,16 @@
 
     <section class="activity-screen is-hidden" id="activity-screen">
       <header class="app-header">
-        <div>
+        <div class="activity-intro-block">
           <h1>J'aimerais te connaître un peu mieux</h1>
-          <p class="intro">Choisis les vidéos que tu regarderais.</p>
+          <p class="intro activity-intro">Afin de pouvoir te recommander des vidéos qui pourraient te plaire, notre IA a besoin de te connaître un peu mieux. Elle te présentera une série de vidéos et, pour chacune d'elles, tu devras lui indiquer si tu regardes ou si tu passes. Clique sur le bouton lorsque tu seras prêt.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="ready-button">Je suis prêt</button>
+          </div>
         </div>
-        <aside class="progress-card" aria-live="polite">
-          <span class="progress-label">Réponses</span>
-          <strong id="progress-count">0 / 0</strong>
-        </aside>
       </header>
 
-      <main class="app-main">
+      <main class="app-main is-hidden" id="activity-main">
         <section class="toolbar" aria-label="État de l'activité">
           <div>
             <h2>Données d'entraînement</h2>
@@ -46,6 +46,7 @@
     <section class="training-screen is-hidden" id="training-screen">
       <div class="training-content">
         <h1>Entraînement du modèle</h1>
+        <p class="intro training-intro">Maintenant que nous avons récolté tes préférences, l'IA peut les utiliser comme données afin d'entraîner son modèle. Lorsque tu seras prêt, clique sur le bouton.</p>
         <div class="training-panel">
           <button class="primary-button" type="button" id="run-training-button">Entraîner</button>
           <div class="training-progress" aria-label="Progression de l'entraînement">
@@ -59,22 +60,44 @@
 
     <section class="test-screen is-hidden" id="test-screen">
       <header class="app-header">
-        <div>
+        <div class="test-intro-block">
           <h1>Test du modèle</h1>
-          <p class="intro">Choisis ce que tu ferais, puis compare ta réponse avec celle de l'IA.</p>
+          <p class="intro test-intro">Maintenant que tu as entraîné le modèle d'IA, nous allons le tester. Nous allons afficher quelques vidéos. Choisis ce que tu ferais, puis nous comparerons ta réponse avec celle de l'IA. Clique sur le bouton lorsque tu seras prêt.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="test-ready-button">Je suis prêt</button>
+          </div>
         </div>
-        <aside class="progress-card" aria-live="polite">
-          <span class="progress-label">Test</span>
-          <strong id="test-progress-count">1 / 5</strong>
-        </aside>
       </header>
 
-      <main class="app-main">
+      <main class="app-main is-hidden" id="test-main">
         <section class="single-video-list" id="test-video-container" aria-label="Vidéo à tester"></section>
         <section class="model-result is-hidden" id="model-result" aria-live="polite"></section>
         <section class="score-result is-hidden" id="score-result" aria-live="polite"></section>
         <section class="next-step">
           <button class="primary-button" type="button" id="next-test-video-button" disabled>Vidéo suivante</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="recommendations-screen is-hidden" id="recommendations-screen">
+      <header class="app-header">
+        <div class="recommendations-intro-block">
+          <h1>Recommandations de vidéos</h1>
+          <p class="intro recommendations-intro">D'après ce que j'ai appris de toi, je peux te faire des recommandations de vidéos qui pourront te plaire. Lorsque tu seras prêt, clique sur le bouton.</p>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="recommendations-panel" id="recommendations-panel">
+          <button class="primary-button" type="button" id="run-recommendations-button">Recommande-moi des vidéos</button>
+          <div class="training-progress is-hidden" id="recommendation-progress" aria-label="Progression de la recommandation">
+            <div class="training-progress-bar recommendation-progress-bar" id="recommendation-progress-bar"></div>
+          </div>
+          <p class="training-status is-hidden" id="recommendation-status">L'IA réfléchit</p>
+        </section>
+        <section class="video-list is-hidden" id="recommendations-list" aria-label="Vidéos recommandées"></section>
+        <section class="next-step is-hidden" id="vacation-step">
+          <button class="primary-button" type="button" id="vacation-button" disabled>Je pars en vacances</button>
         </section>
       </main>
     </section>

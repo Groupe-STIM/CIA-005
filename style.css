@@ -29,18 +29,60 @@ input {
 
 .welcome-screen {
   display: grid;
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   place-items: center;
   padding: 32px 24px;
 }
 
 .welcome-content {
+  position: relative;
+  z-index: 1;
   width: min(720px, 100%);
   text-align: center;
 }
 
 .welcome-content h1 {
   margin-bottom: 28px;
+}
+
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  left: var(--bubble-left);
+  bottom: -80px;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  border: 1px solid rgba(37, 99, 235, 0.34);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.14);
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.8), 0 8px 22px rgba(37, 99, 235, 0.12);
+  animation: bubble-rise var(--bubble-duration) linear infinite;
+  animation-delay: var(--bubble-delay);
+}
+
+@keyframes bubble-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.88);
+  }
+
+  12%,
+  82% {
+    opacity: 0.9;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(var(--bubble-drift), -115vh, 0) scale(1.08);
+  }
 }
 
 .primary-button {
@@ -77,17 +119,31 @@ input {
   min-height: 100vh;
 }
 
+.recommendations-screen {
+  min-height: 100vh;
+}
+
 .vacation-screen {
   min-height: 100vh;
 }
 
 .training-content {
-  width: min(820px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  width: min(1180px, 100%);
   text-align: center;
 }
 
 .training-content h1 {
-  margin-bottom: 28px;
+  margin-bottom: 0;
+}
+
+.training-intro {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .training-panel {
@@ -96,6 +152,14 @@ input {
   gap: 18px;
   width: min(520px, 100%);
   margin: 0 auto;
+}
+
+.recommendations-panel {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  width: min(520px, 100%);
+  margin: 0 auto 24px;
 }
 
 .training-progress {
@@ -113,6 +177,10 @@ input {
   border-radius: inherit;
   background: var(--watch);
   transition: width 1.5s ease;
+}
+
+.recommendation-progress-bar {
+  transition-duration: 3s;
 }
 
 .training-status {
@@ -164,6 +232,36 @@ h1 {
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.5;
+}
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.activity-intro {
+  max-width: none;
+}
+
+.activity-intro-block {
+  text-align: center;
+}
+
+.test-intro-block {
+  text-align: center;
+}
+
+.test-intro {
+  max-width: none;
+}
+
+.recommendations-intro-block {
+  text-align: center;
+}
+
+.recommendations-intro {
+  max-width: none;
 }
 
 .progress-card {
@@ -311,6 +409,17 @@ h1 {
   font-weight: 800;
 }
 
+.empty-message {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+  font-weight: 800;
+}
+
 .video-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 260px;
@@ -336,6 +445,10 @@ h1 {
 
 .video-card.is-skip {
   border-left-color: var(--skip);
+}
+
+.video-card.is-recommendation {
+  grid-template-columns: 1fr;
 }
 
 .video-topline {
@@ -520,4 +633,8 @@ h1 {
   .choice-group {
     grid-template-columns: 1fr;
   }
+}
+
+.is-hidden {
+  display: none !important;
 }
