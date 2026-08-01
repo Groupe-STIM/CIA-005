@@ -16,8 +16,14 @@ const trainingStatus = document.querySelector("#training-status");
 const testVideoContainer = document.querySelector("#test-video-container");
 const modelResult = document.querySelector("#model-result");
 const scoreResult = document.querySelector("#score-result");
+const retryTestButton = document.querySelector("#retry-test-button");
+const modelDetailsButton = document.querySelector("#model-details-button");
+const modelDetailsModal = document.querySelector("#model-details-modal");
+const modelDetailsBody = document.querySelector("#model-details-body");
+const closeModelDetailsButton = document.querySelector("#close-model-details-button");
 const nextTestVideoButton = document.querySelector("#next-test-video-button");
 const runRecommendationsButton = document.querySelector("#run-recommendations-button");
+const recommendationsDetailsButton = document.querySelector("#recommendations-details-button");
 const recommendationProgress = document.querySelector("#recommendation-progress");
 const recommendationProgressBar = document.querySelector("#recommendation-progress-bar");
 const recommendationStatus = document.querySelector("#recommendation-status");
@@ -25,6 +31,20 @@ const recommendationsList = document.querySelector("#recommendations-list");
 const recommendationsIntro = document.querySelector(".recommendations-intro");
 const vacationStep = document.querySelector("#vacation-step");
 const vacationButton = document.querySelector("#vacation-button");
+const vacationReadyButton = document.querySelector("#vacation-ready-button");
+const vacationMain = document.querySelector("#vacation-main");
+const vacationVideoList = document.querySelector("#vacation-video-list");
+const vacationTrainButton = document.querySelector("#vacation-train-button");
+const vacationTrainingScreen = document.querySelector("#vacation-training-screen");
+const runVacationTrainingButton = document.querySelector("#run-vacation-training-button");
+const vacationTrainingProgressBar = document.querySelector("#vacation-training-progress-bar");
+const vacationTrainingStatus = document.querySelector("#vacation-training-status");
+const vacationRecommendButton = document.querySelector("#vacation-recommend-button");
+const vacationRecommendAction = document.querySelector("#vacation-recommend-action");
+const vacationRecommendDetailsButton = document.querySelector("#vacation-recommend-details-button");
+const vacationRecommendationsList = document.querySelector("#vacation-recommendations-list");
+const backToVacationStep = document.querySelector("#back-to-vacation-step");
+const backToVacationButton = document.querySelector("#back-to-vacation-button");
 const activityMain = document.querySelector("#activity-main");
 const activityIntro = document.querySelector(".activity-intro");
 const testMain = document.querySelector("#test-main");
@@ -34,12 +54,15 @@ const statusText = document.querySelector("#status-text");
 const resetButton = document.querySelector("#reset-button");
 
 const responses = new Map();
+const vacationResponses = new Set();
 const displayedVideos = shuffleVideos(trainingVideos);
 let trainedModel = null;
 let selectedTestVideos = [];
 let currentTestIndex = 0;
 let correctTestCount = 0;
+const testedVideoIds = new Set();
 const recommendedVideoIds = new Set();
+const vacationTrainedVideoIds = new Set();
 
 function createWelcomeBubbles() {
   const bubbleCount = 42;
@@ -93,7 +116,6 @@ function renderVideos() {
       <div class="video-main">
         <div class="video-topline">
           <span class="category-pill ${getCategoryClass(video.categorie)}">${video.categorie}</span>
-          <span class="duration">${video.duree}</span>
         </div>
         <h3>${video.titre}</h3>
         <dl class="metadata">
@@ -108,6 +130,10 @@ function renderVideos() {
           <div>
             <dt>Date de publication</dt>
             <dd>${video.publication}</dd>
+          </div>
+          <div>
+            <dt>Durée</dt>
+            <dd>${video.duree}</dd>
           </div>
         </dl>
       </div>
@@ -178,9 +204,50 @@ function trainCategoryModel() {
   return model;
 }
 
+function getCategoryProbability(stats) {
+  return (stats.watch + 1) / (stats.watch + stats.skip + 2);
+}
+
+function getCategoryRecommendationScore(stats) {
+  return getCategoryProbability(stats) * Math.sqrt(stats.watch);
+}
+
+function getModelRows() {
+  return Object.entries(trainedModel ?? {})
+    .map(([category, stats]) => {
+      const probability = getCategoryProbability(stats);
+      const score = getCategoryRecommendationScore(stats);
+
+      return {
+        category,
+        watch: stats.watch,
+        skip: stats.skip,
+        probability,
+        score
+      };
+    })
+    .sort((firstRow, secondRow) => firstRow.category.localeCompare(secondRow.category, "fr"));
+}
+
+function renderModelDetails() {
+  modelDetailsBody.innerHTML = "";
+
+  getModelRows().forEach((row) => {
+    const tableRow = document.createElement("tr");
+    tableRow.innerHTML = `
+      <td><span class="category-pill ${getCategoryClass(row.category)}">${row.category}</span></td>
+      <td>${row.watch}</td>
+      <td>${row.skip}</td>
+      <td>${Math.round(row.probability * 100)} %</td>
+      <td>${row.score.toFixed(2)}</td>
+    `;
+    modelDetailsBody.appendChild(tableRow);
+  });
+}
+
 function predictChoice(video) {
   const categoryStats = trainedModel?.[video.categorie] ?? { watch: 0, skip: 0 };
-  const probability = (categoryStats.watch + 1) / (categoryStats.watch + categoryStats.skip + 2);
+  const probability = getCategoryProbability(categoryStats);
 
   return {
     choice: probability >= 0.5 ? "watch" : "skip",
@@ -192,14 +259,16 @@ function getChoiceLabel(choice) {
   return choice === "watch" ? "✅ Je regarde" : "❌ Je passe";
 }
 
-function createVideoCard(video, radioName) {
+function createVideoCard(video, radioName, options = {}) {
   const card = document.createElement("article");
   card.className = "video-card";
-  card.classList.toggle("is-recommendation", !radioName);
+  card.classList.toggle("is-recommendation", !radioName && !options.checkboxName);
   card.dataset.videoId = video.id;
 
-  const choices = radioName
-    ? `
+  let choices = "";
+
+  if (radioName) {
+    choices = `
       <fieldset class="choice-group" aria-label="Choix pour ${video.titre}">
         <legend>Ton choix</legend>
         <label class="choice choice-watch">
@@ -211,14 +280,25 @@ function createVideoCard(video, radioName) {
           <span>❌ Je passe</span>
         </label>
       </fieldset>
-    `
-    : "";
+    `;
+  }
+
+  if (options.checkboxName) {
+    choices = `
+      <fieldset class="choice-group" aria-label="Choix pour ${video.titre}">
+        <legend>Ton choix</legend>
+        <label class="choice choice-watch">
+          <input type="checkbox" name="${options.checkboxName}" value="watch">
+          <span>✅ Je regarde</span>
+        </label>
+      </fieldset>
+    `;
+  }
 
   card.innerHTML = `
     <div class="video-main">
       <div class="video-topline">
         <span class="category-pill ${getCategoryClass(video.categorie)}">${video.categorie}</span>
-        <span class="duration">${video.duree}</span>
       </div>
       <h3>${video.titre}</h3>
       <dl class="metadata">
@@ -234,6 +314,10 @@ function createVideoCard(video, radioName) {
           <dt>Date de publication</dt>
           <dd>${video.publication}</dd>
         </div>
+        <div>
+          <dt>Durée</dt>
+          <dd>${video.duree}</dd>
+        </div>
       </dl>
     </div>
     ${choices}
@@ -242,27 +326,154 @@ function createVideoCard(video, radioName) {
   return card;
 }
 
-function renderRecommendations() {
-  const testedVideoIds = new Set(selectedTestVideos.map((video) => video.id));
-  const recommendedVideos = shuffleVideos(testVideos)
+function renderVacationVideos() {
+  vacationVideoList.innerHTML = "";
+  vacationResponses.clear();
+
+  shuffleVideos(vacationVideos).forEach((video) => {
+    vacationVideoList.appendChild(createVideoCard(video, null, { checkboxName: `vacation-${video.id}` }));
+  });
+}
+
+function getWeightedRecommendations(count = 5) {
+  const eligibleVideos = shuffleVideos(testVideos)
     .filter((video) => !testedVideoIds.has(video.id))
     .filter((video) => !recommendedVideoIds.has(video.id))
-    .filter((video) => predictChoice(video).choice === "watch")
-    .slice(0, 5);
+    .map((video) => ({
+      video,
+      prediction: predictChoice(video),
+      score: getCategoryRecommendationScore(trainedModel?.[video.categorie] ?? { watch: 0, skip: 0 })
+    }))
+    .filter((item) => item.prediction.choice === "watch")
+    .filter((item) => item.score > 0);
 
-  recommendationsList.innerHTML = "";
+  if (eligibleVideos.length === 0) {
+    return [];
+  }
+
+  const groups = new Map();
+
+  eligibleVideos.forEach(({ video, score }) => {
+    if (!groups.has(video.categorie)) {
+      groups.set(video.categorie, {
+        score,
+        videos: []
+      });
+    }
+
+    groups.get(video.categorie).videos.push(video);
+  });
+
+  const recommendationCount = Math.min(count, eligibleVideos.length);
+  const categories = [...groups.entries()].map(([category, group]) => ({
+    category,
+    score: group.score,
+    videos: group.videos,
+    count: 0,
+    remainder: 0,
+    tieBreaker: Math.random()
+  }));
+
+  const totalScore = categories.reduce((sum, category) => sum + category.score, 0);
+
+  categories.forEach((category) => {
+    const exactShare = (category.score / totalScore) * recommendationCount;
+    category.count = Math.min(Math.floor(exactShare), category.videos.length);
+    category.remainder = exactShare - Math.floor(exactShare);
+  });
+
+  let allocatedCount = categories.reduce((sum, category) => sum + category.count, 0);
+
+  const categoriesByRemainder = [...categories]
+    .filter((category) => category.count < category.videos.length)
+    .sort((firstCategory, secondCategory) => {
+      if (secondCategory.remainder !== firstCategory.remainder) {
+        return secondCategory.remainder - firstCategory.remainder;
+      }
+
+      return firstCategory.tieBreaker - secondCategory.tieBreaker;
+    });
+
+  for (const category of categoriesByRemainder) {
+    if (allocatedCount >= recommendationCount) {
+      break;
+    }
+
+    category.count += 1;
+    allocatedCount += 1;
+  }
+
+  while (allocatedCount < recommendationCount) {
+    const availableCategories = categories
+      .filter((category) => category.count < category.videos.length)
+      .sort((firstCategory, secondCategory) => {
+        if (secondCategory.score !== firstCategory.score) {
+          return secondCategory.score - firstCategory.score;
+        }
+
+        return firstCategory.tieBreaker - secondCategory.tieBreaker;
+      });
+
+    if (availableCategories.length === 0) {
+      break;
+    }
+
+    availableCategories[0].count += 1;
+    allocatedCount += 1;
+  }
+
+  return shuffleVideos(categories.flatMap((category) => category.videos.slice(0, category.count)));
+}
+
+function renderRecommendationList(targetList) {
+  const recommendedVideos = getWeightedRecommendations(5);
+
+  targetList.innerHTML = "";
 
   if (recommendedVideos.length === 0) {
     const emptyMessage = document.createElement("p");
     emptyMessage.className = "empty-message";
     emptyMessage.textContent = "L'IA n'a plus de nouvelles vidéos à recommander pour le moment.";
-    recommendationsList.appendChild(emptyMessage);
+    targetList.appendChild(emptyMessage);
     return;
   }
 
   recommendedVideos.forEach((video) => {
     recommendedVideoIds.add(video.id);
-    recommendationsList.appendChild(createVideoCard(video));
+    targetList.appendChild(createVideoCard(video));
+  });
+}
+
+function renderRecommendations() {
+  renderRecommendationList(recommendationsList);
+}
+
+function renderVacationRecommendations() {
+  renderRecommendationList(vacationRecommendationsList);
+}
+
+function applyVacationTraining() {
+  if (!trainedModel) {
+    trainedModel = {};
+  }
+
+  vacationResponses.forEach((videoId) => {
+    if (vacationTrainedVideoIds.has(videoId)) {
+      return;
+    }
+
+    const video = vacationVideos.find((vacationVideo) => vacationVideo.id === videoId);
+
+    if (!video) {
+      return;
+    }
+
+    if (!trainedModel[video.categorie]) {
+      trainedModel[video.categorie] = { watch: 0, skip: 0 };
+    }
+
+    trainedModel[video.categorie].watch += 1;
+    vacationTrainedVideoIds.add(videoId);
   });
 }
 
@@ -274,12 +485,16 @@ function renderTestVideo() {
   modelResult.innerHTML = "";
   scoreResult.classList.add("is-hidden");
   scoreResult.innerHTML = "";
+  retryTestButton.classList.add("is-hidden");
+  modelDetailsButton.classList.add("is-hidden");
   nextTestVideoButton.disabled = true;
-  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Mes recommandations personnalisées" : "Vidéo suivante";
+  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Prochaine étape: Mes recommandations personnalisées" : "Vidéo suivante";
 }
 
 function startModelTest() {
-  selectedTestVideos = shuffleVideos(testVideos).slice(0, 5);
+  selectedTestVideos = shuffleVideos(testVideos)
+    .filter((video) => !testedVideoIds.has(video.id))
+    .slice(0, 5);
   currentTestIndex = 0;
   correctTestCount = 0;
   trainingScreen.classList.add("is-hidden");
@@ -366,6 +581,7 @@ testVideoContainer.addEventListener("change", (event) => {
   }
 
   const video = selectedTestVideos[currentTestIndex];
+  testedVideoIds.add(video.id);
   const prediction = predictChoice(video);
   const isSameChoice = prediction.choice === input.value;
   const card = input.closest(".video-card");
@@ -395,9 +611,32 @@ testVideoContainer.addEventListener("change", (event) => {
       </div>
       <p>L'IA a choisi comme toi ${correctTestCount} fois sur ${selectedTestVideos.length}.</p>
     `;
+    retryTestButton.classList.remove("is-hidden");
+    modelDetailsButton.classList.remove("is-hidden");
   }
 
   nextTestVideoButton.disabled = false;
+});
+
+retryTestButton.addEventListener("click", () => {
+  selectedTestVideos = shuffleVideos(testVideos)
+    .filter((video) => !testedVideoIds.has(video.id))
+    .slice(0, 5);
+  currentTestIndex = 0;
+  correctTestCount = 0;
+  renderTestVideo();
+});
+
+closeModelDetailsButton.addEventListener("click", () => {
+  modelDetailsModal.classList.add("is-hidden");
+});
+
+[modelDetailsButton, recommendationsDetailsButton, vacationRecommendDetailsButton].forEach((detailsButton) => {
+  detailsButton.addEventListener("click", () => {
+    renderModelDetails();
+    modelDetailsModal.classList.remove("is-hidden");
+    closeModelDetailsButton.focus();
+  });
 });
 
 nextTestVideoButton.addEventListener("click", () => {
@@ -449,6 +688,88 @@ runRecommendationsButton.addEventListener("click", () => {
 vacationButton.addEventListener("click", () => {
   recommendationsScreen.classList.add("is-hidden");
   vacationScreen.classList.remove("is-hidden");
+  vacationReadyButton.focus();
+});
+
+vacationReadyButton.addEventListener("click", () => {
+  vacationReadyButton.classList.add("is-hidden");
+  renderVacationVideos();
+  vacationMain.classList.remove("is-hidden");
+});
+
+vacationVideoList.addEventListener("change", (event) => {
+  const input = event.target;
+
+  if (!input.matches('input[type="checkbox"]')) {
+    return;
+  }
+
+  const card = input.closest(".video-card");
+  const videoId = Number(input.name.replace("vacation-", ""));
+
+  card.classList.toggle("is-watch", input.checked);
+
+  if (input.checked) {
+    vacationResponses.add(videoId);
+    return;
+  }
+
+  vacationResponses.delete(videoId);
+});
+
+vacationTrainButton.addEventListener("click", () => {
+  vacationScreen.classList.add("is-hidden");
+  vacationTrainingScreen.classList.remove("is-hidden");
+  runVacationTrainingButton.disabled = false;
+  vacationTrainingProgressBar.style.width = "0%";
+  vacationTrainingStatus.classList.add("is-hidden");
+  vacationRecommendAction.classList.add("is-hidden");
+  vacationRecommendButton.disabled = true;
+  vacationRecommendDetailsButton.disabled = true;
+  vacationRecommendationsList.classList.add("is-hidden");
+  vacationRecommendationsList.innerHTML = "";
+  backToVacationStep.classList.add("is-hidden");
+  runVacationTrainingButton.focus();
+});
+
+runVacationTrainingButton.addEventListener("click", () => {
+  runVacationTrainingButton.disabled = true;
+  vacationRecommendButton.disabled = true;
+  vacationRecommendAction.classList.add("is-hidden");
+  vacationRecommendDetailsButton.disabled = true;
+  vacationTrainingStatus.classList.add("is-hidden");
+  vacationRecommendationsList.classList.add("is-hidden");
+  backToVacationStep.classList.add("is-hidden");
+  vacationTrainingProgressBar.style.transition = "none";
+  vacationTrainingProgressBar.style.width = "0%";
+
+  requestAnimationFrame(() => {
+    vacationTrainingProgressBar.offsetWidth;
+    vacationTrainingProgressBar.style.transition = "";
+    vacationTrainingProgressBar.style.width = "100%";
+  });
+
+  window.setTimeout(() => {
+    applyVacationTraining();
+    vacationTrainingStatus.classList.remove("is-hidden");
+    vacationRecommendAction.classList.remove("is-hidden");
+    vacationRecommendButton.disabled = false;
+    vacationRecommendDetailsButton.disabled = false;
+    vacationRecommendButton.focus();
+  }, 1600);
+});
+
+vacationRecommendButton.addEventListener("click", () => {
+  renderVacationRecommendations();
+  vacationRecommendationsList.classList.remove("is-hidden");
+  backToVacationStep.classList.remove("is-hidden");
+});
+
+backToVacationButton.addEventListener("click", () => {
+  vacationTrainingScreen.classList.add("is-hidden");
+  vacationScreen.classList.remove("is-hidden");
+  vacationMain.classList.remove("is-hidden");
+  vacationTrainButton.focus();
 });
 
 window.getTrainingResponses = getTrainingResponses;

@@ -74,9 +74,33 @@
         <section class="model-result is-hidden" id="model-result" aria-live="polite"></section>
         <section class="score-result is-hidden" id="score-result" aria-live="polite"></section>
         <section class="next-step">
+          <button class="secondary-button is-hidden" type="button" id="retry-test-button">Refaire le test</button>
+          <button class="secondary-button is-hidden" type="button" id="model-details-button">Comment l'IA fait ses prédictions?</button>
           <button class="primary-button" type="button" id="next-test-video-button" disabled>Vidéo suivante</button>
         </section>
       </main>
+    </section>
+
+    <section class="modal-backdrop is-hidden" id="model-details-modal" role="dialog" aria-modal="true" aria-labelledby="model-details-title">
+      <div class="modal-panel">
+        <h2 id="model-details-title">Classificateur probabiliste par catégorie</h2>
+        <p class="modal-subtitle">Inspiré du Naive Bayes</p>
+        <div class="model-table-wrap">
+          <table class="model-table">
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th>Je regarde</th>
+                <th>Je passe</th>
+                <th>Probabilité de regarder</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody id="model-details-body"></tbody>
+          </table>
+        </div>
+        <button class="primary-button" type="button" id="close-model-details-button">Fermer</button>
+      </div>
     </section>
 
     <section class="recommendations-screen is-hidden" id="recommendations-screen">
@@ -89,7 +113,15 @@
 
       <main class="app-main">
         <section class="recommendations-panel" id="recommendations-panel">
-          <button class="primary-button" type="button" id="run-recommendations-button">Recommande-moi des vidéos</button>
+          <div class="recommendation-action">
+            <button class="primary-button" type="button" id="run-recommendations-button">Recommande-moi des vidéos</button>
+            <button class="icon-button" type="button" id="recommendations-details-button" aria-label="Voir les probabilités par catégorie" title="Voir les probabilités par catégorie">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
           <div class="training-progress is-hidden" id="recommendation-progress" aria-label="Progression de la recommandation">
             <div class="training-progress-bar recommendation-progress-bar" id="recommendation-progress-bar"></div>
           </div>
@@ -102,7 +134,51 @@
       </main>
     </section>
 
-    <section class="vacation-screen is-hidden" id="vacation-screen" aria-label="Vacances"></section>
+    <section class="vacation-screen is-hidden" id="vacation-screen">
+      <header class="app-header">
+        <div class="vacation-intro-block">
+          <h1>Je pars en vacances</h1>
+          <p class="intro vacation-intro">Je pars en vacances avec ma famille dans deux semaines. On m'a dit que j'allais être en charge de préparer les petits-déjeuners. Ouf! Tout un défi! Pour me préparer, j'ai décidé de visionner des vidéos sur le sujet.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="vacation-ready-button">Je suis prêt</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main is-hidden" id="vacation-main">
+        <section class="video-list" id="vacation-video-list" aria-label="Vidéos de vacances"></section>
+        <section class="next-step">
+          <button class="primary-button" type="button" id="vacation-train-button">Entraînons le modèle</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="vacation-training-screen is-hidden" id="vacation-training-screen">
+      <div class="training-content">
+        <h1>Entraînement du modèle</h1>
+        <p class="intro training-intro">Nous allons maintenant ré-entraîner le modèle en y ajoutant les choix que tu viens de faire. Lorsque tu seras prêt, clique sur le bouton.</p>
+        <div class="training-panel">
+          <button class="primary-button" type="button" id="run-vacation-training-button">Entraîner</button>
+          <div class="training-progress" aria-label="Progression du réentraînement">
+            <div class="training-progress-bar" id="vacation-training-progress-bar"></div>
+          </div>
+          <p class="training-status is-hidden" id="vacation-training-status">Le modèle est prêt à apprendre à partir de tes choix.</p>
+          <div class="recommendation-action is-hidden" id="vacation-recommend-action">
+            <button class="primary-button" type="button" id="vacation-recommend-button" disabled>Recommande-moi des vidéos</button>
+            <button class="icon-button" type="button" id="vacation-recommend-details-button" aria-label="Voir les probabilités par catégorie" title="Voir les probabilités par catégorie" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <section class="video-list is-hidden" id="vacation-recommendations-list" aria-label="Nouvelles recommandations"></section>
+        <section class="next-step is-hidden" id="back-to-vacation-step">
+          <button class="primary-button" type="button" id="back-to-vacation-button">Je pars en vacances</button>
+        </section>
+      </div>
+    </section>
 
     <script src="data.js"></script>
     <script src="script.js"></script>

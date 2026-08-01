@@ -217,19 +217,19 @@ const trainingVideos = [
   },
   {
     "id": 25,
-    "titre": "Je tente le défi des 100 rebonds... sans faire tomber le ballon",
+    "titre": "Soccer - Je tente le défi des 100 rebonds... sans faire tomber le ballon",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "26:50",
+    "duree": "26:50:00",
     "vues": "734 k vues",
     "publication": "Il y a 9 jours"
   },
   {
     "id": 26,
-    "titre": "Ce geste technique a complètement changé ma façon de jouer",
+    "titre": "Ce geste technique au hockey a complètement changé ma façon de jouer",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:56",
+    "duree": "1:56",
     "vues": "982 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -238,34 +238,34 @@ const trainingVideos = [
     "titre": "J'ai découvert un parcours secret parfait pour courir après l'école",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:15",
+    "duree": "3:15",
     "vues": "341 k vues",
     "publication": "Il y a 5 jours"
   },
   {
     "id": 28,
-    "titre": "Pourquoi les joueurs professionnels changent-ils souvent de chaussures ?",
+    "titre": "Pourquoi les joueurs professionnels de basketball changent-ils souvent de chaussures ?",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:29",
+    "duree": "2:29",
     "vues": "608 k vues",
     "publication": "Il y a 3 semaines"
   },
   {
     "id": 29,
-    "titre": "Le plus beau but de notre saison... filmé sous tous les angles",
+    "titre": "Le plus beau but de hockey de la saison... filmé sous tous les angles",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:37",
+    "duree": "1:37",
     "vues": "1,5 M vues",
     "publication": "Il y a 6 jours"
   },
   {
     "id": 30,
-    "titre": "Je participe à un entraînement de gymnastique sans aucune expérience",
+    "titre": "Je participe à un entraînement facile pour courir plus vite que tous",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:54",
+    "duree": "3:54",
     "vues": "397 k vues",
     "publication": "Il y a 1 semaine"
   }
@@ -3577,7 +3577,7 @@ const testVideos = [
   },
   {
     "id": 398,
-    "titre": "Ce joueur inconnu m'a appris une technique que je n'oublierai jamais",
+    "titre": "Ce joueur inconnu m'a appris une technique que je n'oublierai jamais dans Mario Kart World",
     "categorie": "Jeux vidéo",
     "createur": "PlayLab",
     "duree": "9:37",
@@ -3586,7 +3586,7 @@ const testVideos = [
   },
   {
     "id": 399,
-    "titre": "Mon inventaire est rempli d'objets inutiles... Enfin  c'est ce que je pensais",
+    "titre": "Dans Roblox, mon inventaire est rempli d'objets inutiles... Enfin  c'est ce que je pensais",
     "categorie": "Jeux vidéo",
     "createur": "PixelMax",
     "duree": "15:16",
@@ -3613,7 +3613,7 @@ const testVideos = [
   },
   {
     "id": 402,
-    "titre": "Le boss m'a battu 17 fois... la 18e était la bonne",
+    "titre": "Comment battre tout le monde facilement a FIFA",
     "categorie": "Jeux vidéo",
     "createur": "Sam Gaming",
     "duree": "14:58",
@@ -3631,7 +3631,7 @@ const testVideos = [
   },
   {
     "id": 404,
-    "titre": "Les développeurs avaient caché ce clin d'œil depuis des années",
+    "titre": "Les développeurs de Fortnite avaient caché ce clin d'œil depuis des années",
     "categorie": "Jeux vidéo",
     "createur": "NovaPlay",
     "duree": "8:21",
@@ -3649,7 +3649,7 @@ const testVideos = [
   },
   {
     "id": 406,
-    "titre": "J'ai enfin compris pourquoi tout le monde adore ce jeu indépendant",
+    "titre": "J'ai enfin compris pourquoi tout le monde adore ce nouveau jeu vidéo",
     "categorie": "Jeux vidéo",
     "createur": "Cube Aventure",
     "duree": "19:12",
@@ -3658,19 +3658,19 @@ const testVideos = [
   },
   {
     "id": 407,
-    "titre": "POV : ton équipe marque à la dernière seconde ⏱️",
+    "titre": "Ton équipe marque à la dernière seconde à la FIFA ⏱️",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "00:07",
+    "duree": "0:07",
     "vues": "4,2 M vues",
     "publication": "Il y a 2 jours"
   },
   {
     "id": 408,
-    "titre": "Mon premier match sous la pluie... et je veux recommencer",
+    "titre": "Mon premier match de soccer sous la pluie... et je veux recommencer",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:01",
+    "duree": "3:01",
     "vues": "526 k vues",
     "publication": "Il y a 12 jours"
   },
@@ -3679,16 +3679,16 @@ const testVideos = [
     "titre": "Le défi du parcours d'obstacles... personne n'a terminé du premier coup",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:51",
+    "duree": "2:51",
     "vues": "874 k vues",
     "publication": "Il y a 8 jours"
   },
   {
     "id": 410,
-    "titre": "J'ai demandé à mon entraîneur son meilleur conseil... sa réponse m'a surpris",
+    "titre": "J'ai demandé à mon entraîneur de tennis son meilleur conseil... sa réponse m'a surpris",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:49",
+    "duree": "1:49",
     "vues": "1,3 M vues",
     "publication": "Il y a 3 semaines"
   },
@@ -3697,7 +3697,7 @@ const testVideos = [
     "titre": "Le vélo électrique est-il vraiment plus amusant qu'un vélo classique ?",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:31",
+    "duree": "3:31",
     "vues": "452 k vues",
     "publication": "Il y a 4 semaines"
   },
@@ -3706,7 +3706,7 @@ const testVideos = [
     "titre": "Je compare les échauffements de trois sports complètement différents",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:40",
+    "duree": "2:40",
     "vues": "566 k vues",
     "publication": "Il y a 11 jours"
   },
@@ -3715,7 +3715,7 @@ const testVideos = [
     "titre": "Pourquoi certains joueurs restent-ils toujours aussi calmes sous pression ?",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:10",
+    "duree": "2:10",
     "vues": "813 k vues",
     "publication": "Il y a 2 mois"
   },
@@ -3724,16 +3724,16 @@ const testVideos = [
     "titre": "Une journée à découvrir le baseball avec une vraie équipe",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:40",
+    "duree": "3:40",
     "vues": "389 k vues",
     "publication": "Il y a 10 jours"
   },
   {
     "id": 415,
-    "titre": "Le défi des tirs les plus improbables... combien entreront ?",
+    "titre": "Le défi des tirs de soccer les plus improbables... combien entreront ?",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:29",
+    "duree": "2:29",
     "vues": "947 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -3742,16 +3742,16 @@ const testVideos = [
     "titre": "J'ai essayé un entraînement inspiré des astronautes",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:09",
+    "duree": "3:09",
     "vues": "691 k vues",
     "publication": "Il y a 9 jours"
   },
   {
     "id": 417,
-    "titre": "Le plus beau sentier de randonnée que j'ai exploré cette année",
+    "titre": "Le plus beau sentier de course que j'ai exploré cette année",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "04:00",
+    "duree": "4:00",
     "vues": "274 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -3760,16 +3760,16 @@ const testVideos = [
     "titre": "Pourquoi les sportifs ferment-ils parfois les yeux avant de commencer ?",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:40",
+    "duree": "1:40",
     "vues": "485 k vues",
     "publication": "Il y a 3 semaines"
   },
   {
     "id": 419,
-    "titre": "J'organise un mini tournoi dans mon quartier",
+    "titre": "J'organise un mini tournoi de ping pong dans mon quartier",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "02:47",
+    "duree": "2:47",
     "vues": "604 k vues",
     "publication": "Il y a 6 jours"
   },
@@ -3778,7 +3778,7 @@ const testVideos = [
     "titre": "Le jour où j'ai enfin réussi mon premier salto arrière",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:46",
+    "duree": "3:46",
     "vues": "738 k vues",
     "publication": "Il y a 13 jours"
   },
@@ -3787,25 +3787,25 @@ const testVideos = [
     "titre": "Je teste si les gadgets d'entraînement les plus populaires valent vraiment le coup",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:01",
+    "duree": "3:01",
     "vues": "824 k vues",
     "publication": "Il y a 5 semaines"
   },
   {
     "id": 422,
-    "titre": "POV : tu bats enfin ton record personnel 🏅",
+    "titre": "Course à vélo - tu bats enfin ton record personnel 🏅",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "00:06",
+    "duree": "0:06",
     "vues": "3,6 M vues",
     "publication": "Il y a 4 jours"
   },
   {
     "id": 423,
-    "titre": "Cette stratégie nous a permis de renverser le match",
+    "titre": "Cette stratégie au hockey nous a permis de renverser le match",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "02:34",
+    "duree": "2:34",
     "vues": "659 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -3814,7 +3814,7 @@ const testVideos = [
     "titre": "Mon plus gros fou rire pendant un entraînement 😂",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "01:54",
+    "duree": "1:54",
     "vues": "1,7 M vues",
     "publication": "Il y a 2 semaines"
   },
@@ -3823,7 +3823,7 @@ const testVideos = [
     "titre": "Je découvre pourquoi autant de gens deviennent accros à l'escalade",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:30",
+    "duree": "3:30",
     "vues": "318 k vues",
     "publication": "Il y a 8 jours"
   },
@@ -3832,7 +3832,7 @@ const testVideos = [
     "titre": "Je n'avais jamais joué au pickleball... maintenant je comprends pourquoi tout le monde en parle",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:16",
+    "duree": "3:16",
     "vues": "512 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -3841,7 +3841,7 @@ const testVideos = [
     "titre": "Le défi des 50 tirs : combien finiront vraiment dans le filet ?",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:21",
+    "duree": "2:21",
     "vues": "846 k vues",
     "publication": "Il y a 8 jours"
   },
@@ -3850,7 +3850,7 @@ const testVideos = [
     "titre": "Pourquoi les arbitres utilisent-ils vraiment le carton jaune ?",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "02:02",
+    "duree": "2:02",
     "vues": "391 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -3859,7 +3859,7 @@ const testVideos = [
     "titre": "J'apprends à jongler avec un ballon en suivant seulement Internet",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:35",
+    "duree": "2:35",
     "vues": "624 k vues",
     "publication": "Il y a 5 jours"
   },
@@ -3868,16 +3868,16 @@ const testVideos = [
     "titre": "Le plus beau parcours de vélo que j'ai découvert cet été",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:44",
+    "duree": "3:44",
     "vues": "283 k vues",
     "publication": "Il y a 3 semaines"
   },
   {
     "id": 431,
-    "titre": "Je teste les exercices de coordination d'une équipe professionnelle",
+    "titre": "Je teste les exercices de réchauffement d'une équipe professionnelle",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:02",
+    "duree": "3:02",
     "vues": "717 k vues",
     "publication": "Il y a 2 mois"
   },
@@ -3886,16 +3886,16 @@ const testVideos = [
     "titre": "Cette séance d'entraînement ne dure que 10 minutes... mais elle est redoutable",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:06",
+    "duree": "2:06",
     "vues": "1,2 M vues",
     "publication": "Il y a 6 jours"
   },
   {
     "id": 433,
-    "titre": "POV : tu arrêtes enfin un tir impossible 🥅",
+    "titre": "Hockey - Tu arrêtes enfin un tir impossible 🥅",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "00:05",
+    "duree": "0:05",
     "vues": "3,4 M vues",
     "publication": "Il y a 3 jours"
   },
@@ -3904,7 +3904,7 @@ const testVideos = [
     "titre": "Mon ami choisit tous les défis sportifs de la journée",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:54",
+    "duree": "2:54",
     "vues": "548 k vues",
     "publication": "Il y a 10 jours"
   },
@@ -3913,16 +3913,16 @@ const testVideos = [
     "titre": "Je pensais que le badminton était facile... j'avais complètement tort",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:29",
+    "duree": "3:29",
     "vues": "438 k vues",
     "publication": "Il y a 11 jours"
   },
   {
     "id": 436,
-    "titre": "Les cinq plus belles célébrations que nous avons réussies cette saison",
+    "titre": "Les cinq plus belles attrapées au baseball cette saison",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:51",
+    "duree": "1:51",
     "vues": "906 k vues",
     "publication": "Il y a 1 mois"
   },
@@ -3931,7 +3931,7 @@ const testVideos = [
     "titre": "J'essaie le golf pour la première fois... où est passée la balle ?",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:13",
+    "duree": "3:13",
     "vues": "359 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -3940,16 +3940,16 @@ const testVideos = [
     "titre": "Comment réussir un meilleur départ en course sans courir plus vite",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:28",
+    "duree": "2:28",
     "vues": "775 k vues",
     "publication": "Il y a 9 jours"
   },
   {
     "id": 439,
-    "titre": "On joue tout un match avec des règles complètement inventées",
+    "titre": "On joue au hockey avec des règles complètement inventées",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:57",
+    "duree": "2:57",
     "vues": "1,5 M vues",
     "publication": "Il y a 4 jours"
   },
@@ -3958,7 +3958,7 @@ const testVideos = [
     "titre": "Le plus beau terrain de basketball que j'ai visité",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "02:42",
+    "duree": "2:42",
     "vues": "304 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -3967,7 +3967,7 @@ const testVideos = [
     "titre": "J'ai demandé à une IA de préparer mon entraînement sportif",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:47",
+    "duree": "3:47",
     "vues": "632 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -3976,7 +3976,7 @@ const testVideos = [
     "titre": "Pourquoi les nageurs portent-ils parfois deux bonnets ?",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:36",
+    "duree": "1:36",
     "vues": "427 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -3985,7 +3985,7 @@ const testVideos = [
     "titre": "Le défi des passes parfaites... personne ne s'attendait à cette fin",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:13",
+    "duree": "2:13",
     "vues": "689 k vues",
     "publication": "Il y a 12 jours"
   },
@@ -3994,16 +3994,16 @@ const testVideos = [
     "titre": "Je découvre le tir à l'arc et je vise le centre dès le premier essai",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:34",
+    "duree": "3:34",
     "vues": "266 k vues",
     "publication": "Il y a 6 jours"
   },
   {
     "id": 445,
-    "titre": "Les erreurs que je faisais chaque fois avant un match",
+    "titre": "Les erreurs que je faisais chaque fois avant un match de soccer",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:58",
+    "duree": "1:58",
     "vues": "958 k vues",
     "publication": "Il y a 2 mois"
   },
@@ -4012,7 +4012,7 @@ const testVideos = [
     "titre": "Cette compétition amicale est devenue beaucoup plus sérieuse que prévu",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "02:52",
+    "duree": "2:52",
     "vues": "581 k vues",
     "publication": "Il y a 8 jours"
   },
@@ -4021,16 +4021,16 @@ const testVideos = [
     "titre": "Mon plus beau souvenir de tournoi... et ce n'est même pas une victoire",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:32",
+    "duree": "3:32",
     "vues": "342 k vues",
     "publication": "Il y a 5 semaines"
   },
   {
     "id": 448,
-    "titre": "Je compare un ballon à 15 $ avec un ballon professionnel",
+    "titre": "Je compare un ballon de soccer à 15 $ avec un ballon professionnel",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:34",
+    "duree": "2:34",
     "vues": "843 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4039,7 +4039,7 @@ const testVideos = [
     "titre": "Le défi de l'équilibre sur slackline... combien de temps vais-je tenir ?",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "02:20",
+    "duree": "2:20",
     "vues": "493 k vues",
     "publication": "Il y a 13 jours"
   },
@@ -4048,7 +4048,7 @@ const testVideos = [
     "titre": "Je joue un match complet... sans jamais parler à mon équipe",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:28",
+    "duree": "2:28",
     "vues": "584 k vues",
     "publication": "Il y a 9 jours"
   },
@@ -4057,7 +4057,7 @@ const testVideos = [
     "titre": "Ce lancer franc semblait impossible... jusqu'à aujourd'hui",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:49",
+    "duree": "1:49",
     "vues": "927 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4066,7 +4066,7 @@ const testVideos = [
     "titre": "J'ai essayé le biathlon pour la toute première fois",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:40",
+    "duree": "3:40",
     "vues": "362 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4075,7 +4075,7 @@ const testVideos = [
     "titre": "Pourquoi les gardiens de hockey tapent-ils leurs poteaux ?",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:40",
+    "duree": "1:40",
     "vues": "418 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4084,7 +4084,7 @@ const testVideos = [
     "titre": "Je relève le défi des 1 000 passes avec mes amis",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "03:01",
+    "duree": "3:01",
     "vues": "713 k vues",
     "publication": "Il y a 12 jours"
   },
@@ -4093,7 +4093,7 @@ const testVideos = [
     "titre": "Le sport qui brûle le plus de calories... le résultat m'a surpris",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:52",
+    "duree": "2:52",
     "vues": "1,3 M vues",
     "publication": "Il y a 1 mois"
   },
@@ -4102,7 +4102,7 @@ const testVideos = [
     "titre": "J'ai appris à faire un salto... avec un vrai entraîneur",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:56",
+    "duree": "3:56",
     "vues": "806 k vues",
     "publication": "Il y a 5 jours"
   },
@@ -4111,7 +4111,7 @@ const testVideos = [
     "titre": "Cette technique m'a enfin permis de réussir un service au volleyball",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:13",
+    "duree": "2:13",
     "vues": "276 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4120,16 +4120,16 @@ const testVideos = [
     "titre": "Mon premier entraînement de boxe a été beaucoup plus intense que prévu",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:11",
+    "duree": "3:11",
     "vues": "539 k vues",
     "publication": "Il y a 8 jours"
   },
   {
     "id": 459,
-    "titre": "POV : tu marques le point gagnant devant toute l'école 🏐",
+    "titre": "Tu marques le point gagnant devant toute l'école 🏐",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "00:06",
+    "duree": "0:06",
     "vues": "2,8 M vues",
     "publication": "Il y a 4 jours"
   },
@@ -4138,7 +4138,7 @@ const testVideos = [
     "titre": "On échange nos sports préférés pendant une journée complète",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "03:21",
+    "duree": "3:21",
     "vues": "447 k vues",
     "publication": "Il y a 10 jours"
   },
@@ -4147,7 +4147,7 @@ const testVideos = [
     "titre": "Le plus beau plongeon que j'aie réussi cet été",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "02:02",
+    "duree": "2:02",
     "vues": "694 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4156,7 +4156,7 @@ const testVideos = [
     "titre": "Pourquoi les professionnels s'échauffent-ils toujours de cette façon ?",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:05",
+    "duree": "2:05",
     "vues": "811 k vues",
     "publication": "Il y a 6 jours"
   },
@@ -4165,7 +4165,7 @@ const testVideos = [
     "titre": "Je découvre un terrain caché en pleine forêt",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:49",
+    "duree": "3:49",
     "vues": "225 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4174,7 +4174,7 @@ const testVideos = [
     "titre": "Le défi du ballon géant... c'était beaucoup plus drôle que prévu !",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:40",
+    "duree": "2:40",
     "vues": "1,6 M vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4183,7 +4183,7 @@ const testVideos = [
     "titre": "J'ai testé les chaussures les moins chères contre les plus populaires",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:58",
+    "duree": "2:58",
     "vues": "591 k vues",
     "publication": "Il y a 2 mois"
   },
@@ -4192,7 +4192,7 @@ const testVideos = [
     "titre": "Cette remontée restera la plus incroyable de notre saison",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "02:50",
+    "duree": "2:50",
     "vues": "482 k vues",
     "publication": "Il y a 9 jours"
   },
@@ -4201,7 +4201,7 @@ const testVideos = [
     "titre": "Peut-on vraiment améliorer son équilibre en 7 jours ?",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:23",
+    "duree": "2:23",
     "vues": "367 k vues",
     "publication": "Il y a 11 jours"
   },
@@ -4210,7 +4210,7 @@ const testVideos = [
     "titre": "Je participe à une compétition sans connaître les règles... ou presque",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:42",
+    "duree": "3:42",
     "vues": "304 k vues",
     "publication": "Il y a 4 semaines"
   },
@@ -4219,7 +4219,7 @@ const testVideos = [
     "titre": "Les cinq erreurs que j'aurais aimé éviter en skateboard",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "02:16",
+    "duree": "2:16",
     "vues": "638 k vues",
     "publication": "Il y a 13 jours"
   },
@@ -4228,7 +4228,7 @@ const testVideos = [
     "titre": "J'affronte une équipe composée uniquement d'entraîneurs",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "03:09",
+    "duree": "3:09",
     "vues": "774 k vues",
     "publication": "Il y a 5 jours"
   },
@@ -4237,7 +4237,7 @@ const testVideos = [
     "titre": "Mon petit frère devient mon coach pendant 24 heures",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "01:56",
+    "duree": "1:56",
     "vues": "988 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4246,7 +4246,7 @@ const testVideos = [
     "titre": "Le défi des tirs impossibles... combien vais-je en réussir ?",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:37",
+    "duree": "2:37",
     "vues": "853 k vues",
     "publication": "Il y a 3 jours"
   },
@@ -4255,7 +4255,7 @@ const testVideos = [
     "titre": "Je découvre pourquoi les sportifs adorent autant l'escalade",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:29",
+    "duree": "3:29",
     "vues": "289 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4264,7 +4264,7 @@ const testVideos = [
     "titre": "Le meilleur conseil sportif que j'ai reçu cette année",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:45",
+    "duree": "1:45",
     "vues": "1,1 M vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4273,7 +4273,7 @@ const testVideos = [
     "titre": "J'ai essayé le soccer avec les yeux bandés... enfin presque !",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "02:39",
+    "duree": "2:39",
     "vues": "684 k vues",
     "publication": "Il y a 5 jours"
   },
@@ -4282,7 +4282,7 @@ const testVideos = [
     "titre": "Le panier le plus chanceux que j'aie marqué de toute ma vie",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "01:52",
+    "duree": "1:52",
     "vues": "1,2 M vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4291,7 +4291,7 @@ const testVideos = [
     "titre": "Peut-on apprendre un nouveau sport en une seule journée ?",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:48",
+    "duree": "3:48",
     "vues": "437 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4300,7 +4300,7 @@ const testVideos = [
     "titre": "Mon grand-père m'a lancé un défi de hockey que je n'oublierai jamais",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "03:02",
+    "duree": "3:02",
     "vues": "592 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4309,7 +4309,7 @@ const testVideos = [
     "titre": "J'ai couru mon premier 5 km... et je ne m'attendais pas à ça",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:30",
+    "duree": "3:30",
     "vues": "311 k vues",
     "publication": "Il y a 6 jours"
   },
@@ -4318,7 +4318,7 @@ const testVideos = [
     "titre": "Pourquoi tous les débutants font cette erreur au basketball ?",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:09",
+    "duree": "2:09",
     "vues": "908 k vues",
     "publication": "Il y a 2 mois"
   },
@@ -4327,7 +4327,7 @@ const testVideos = [
     "titre": "Le match le plus drôle qu'on ait joué entre amis 😂",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:01",
+    "duree": "2:01",
     "vues": "1,8 M vues",
     "publication": "Il y a 10 jours"
   },
@@ -4336,7 +4336,7 @@ const testVideos = [
     "titre": "Je teste les exercices d'entraînement d'un joueur professionnel",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:16",
+    "duree": "3:16",
     "vues": "526 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4345,16 +4345,16 @@ const testVideos = [
     "titre": "Cette règle du volleyball surprend toujours les nouveaux joueurs",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:39",
+    "duree": "1:39",
     "vues": "264 k vues",
     "publication": "Il y a 8 jours"
   },
   {
     "id": 484,
-    "titre": "POV : tu réussis enfin ton premier dunk 🏀",
+    "titre": "Tu réussis enfin ton premier dunk 🏀",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "00:06",
+    "duree": "0:06",
     "vues": "3,7 M vues",
     "publication": "Il y a 4 jours"
   },
@@ -4363,7 +4363,7 @@ const testVideos = [
     "titre": "J'ai affronté mon professeur au tennis... le résultat est inattendu",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "02:48",
+    "duree": "2:48",
     "vues": "761 k vues",
     "publication": "Il y a 1 semaine"
   },
@@ -4372,7 +4372,7 @@ const testVideos = [
     "titre": "Pourquoi le surf est beaucoup plus difficile qu'il n'y paraît",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:33",
+    "duree": "3:33",
     "vues": "419 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4381,7 +4381,7 @@ const testVideos = [
     "titre": "Le défi des 100 jongles au soccer... mission accomplie ?",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:25",
+    "duree": "2:25",
     "vues": "602 k vues",
     "publication": "Il y a 12 jours"
   },
@@ -4390,7 +4390,7 @@ const testVideos = [
     "titre": "J'ai découvert un sport dont je n'avais jamais entendu parler",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "04:01",
+    "duree": "4:01",
     "vues": "278 k vues",
     "publication": "Il y a 9 jours"
   },
@@ -4399,7 +4399,7 @@ const testVideos = [
     "titre": "Mon premier cours d'escalade a complètement changé ma façon de voir ce sport",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "03:32",
+    "duree": "3:32",
     "vues": "344 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4408,7 +4408,7 @@ const testVideos = [
     "titre": "Je pensais être rapide... jusqu'à cette course",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "01:56",
+    "duree": "1:56",
     "vues": "489 k vues",
     "publication": "Il y a 5 jours"
   },
@@ -4417,7 +4417,7 @@ const testVideos = [
     "titre": "Le plus beau but de notre tournoi scolaire",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "01:25",
+    "duree": "1:25",
     "vues": "1,4 M vues",
     "publication": "Il y a 1 mois"
   },
@@ -4426,7 +4426,7 @@ const testVideos = [
     "titre": "Comment améliorer ton tir sans t'entraîner plus longtemps",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "02:35",
+    "duree": "2:35",
     "vues": "836 k vues",
     "publication": "Il y a 2 semaines"
   },
@@ -4435,7 +4435,7 @@ const testVideos = [
     "titre": "Une journée complète dans la peau d'un gardien de but",
     "categorie": "Sport",
     "createur": "Objectif Sport",
-    "duree": "03:55",
+    "duree": "3:55",
     "vues": "391 k vues",
     "publication": "Il y a 11 jours"
   },
@@ -4444,7 +4444,7 @@ const testVideos = [
     "titre": "Je laisse une roue choisir mon sport de la journée",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "03:06",
+    "duree": "3:06",
     "vues": "547 k vues",
     "publication": "Il y a 4 jours"
   },
@@ -4453,7 +4453,7 @@ const testVideos = [
     "titre": "Le skateboard semblait facile... jusqu'à ma première descente",
     "categorie": "Sport",
     "createur": "Altitude+",
-    "duree": "02:07",
+    "duree": "2:07",
     "vues": "613 k vues",
     "publication": "Il y a 13 jours"
   },
@@ -4462,7 +4462,7 @@ const testVideos = [
     "titre": "Le secret des athlètes pour rester motivés toute l'année",
     "categorie": "Sport",
     "createur": "Coach Alex",
-    "duree": "01:48",
+    "duree": "1:48",
     "vues": "952 k vues",
     "publication": "Il y a 1 mois"
   },
@@ -4471,16 +4471,16 @@ const testVideos = [
     "titre": "Mon équipe perdait 5 à 0... puis tout a changé",
     "categorie": "Sport",
     "createur": "Zone Sport",
-    "duree": "03:13",
+    "duree": "3:13",
     "vues": "722 k vues",
     "publication": "Il y a 6 jours"
   },
   {
     "id": 498,
-    "titre": "Je compare cinq ballons de basketball sans regarder leur marque",
+    "titre": "Je compare cinq ballons de soccer sans regarder leur marque",
     "categorie": "Sport",
     "createur": "SportLab",
-    "duree": "02:28",
+    "duree": "2:28",
     "vues": "308 k vues",
     "publication": "Il y a 3 semaines"
   },
@@ -4489,8 +4489,299 @@ const testVideos = [
     "titre": "Le défi sportif le plus amusant à essayer avec tes amis",
     "categorie": "Sport",
     "createur": "Défi Max",
-    "duree": "00:33",
+    "duree": "0:33",
     "vues": "1,1 M vues",
     "publication": "Il y a 8 jours"
+  }
+];
+
+const vacationVideos = [
+  {
+    "id": 500,
+    "titre": "Comment casser des oeufs sans percer les jaunes?",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "7:36",
+    "vues": "1,1 M vues",
+    "publication": "Il y a 1 mois"
+  },
+  {
+    "id": 501,
+    "titre": "J'ai réussi les meilleures crêpes au monde",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "1:47",
+    "vues": "678 k vues",
+    "publication": "Il y a 3 semaines"
+  },
+  {
+    "id": 502,
+    "titre": "Le défi du petit-déjeuner arc-en-ciel 🌈",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "2:19",
+    "vues": "905 k vues",
+    "publication": "Il y a 2 jours"
+  },
+  {
+    "id": 503,
+    "titre": "Peut-on faire des crêpes avec seulement 3 ingrédients?",
+    "categorie": "Cuisine",
+    "createur": "Défi Cuisine",
+    "duree": "3:54",
+    "vues": "357 k vues",
+    "publication": "Il y a 12 jours"
+  },
+  {
+    "id": 504,
+    "titre": "Je prépare un déjeuner en moins de 5 minutes!",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "6:44",
+    "vues": "742 k vues",
+    "publication": "Il y a 5 mois"
+  },
+  {
+    "id": 505,
+    "titre": "Les céréales les plus étranges du monde… testées!",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "0:31",
+    "vues": "609 k vues",
+    "publication": "Il y a 4 jours"
+  },
+  {
+    "id": 506,
+    "titre": "Mon frère choisit tous les ingrédients de mon déjeuner!",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "10:15",
+    "vues": "483 k vues",
+    "publication": "Il y a 3 mois"
+  },
+  {
+    "id": 507,
+    "titre": "J’ai transformé des fruits en personnages rigolos 🍓",
+    "categorie": "Cuisine",
+    "createur": "Défi Cuisine",
+    "duree": "11:18",
+    "vues": "156 k vues",
+    "publication": "Il y a 1 semaine"
+  },
+  {
+    "id": 508,
+    "titre": "La toast le plus drôle que j’ai jamais préparé!",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "9:52",
+    "vues": "271 k vues",
+    "publication": "Il y a 9 jours"
+  },
+  {
+    "id": 509,
+    "titre": "Défi : cuisiner un déjeuner sans utiliser de cuillère!",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "6:06",
+    "vues": "512 k vues",
+    "publication": "Il y a 2 semaines"
+  },
+  {
+    "id": 510,
+    "titre": "5 idées de déjeuners qui ressemblent à des desserts",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "4:42",
+    "vues": "391 k vues",
+    "publication": "Il y a 11 jours"
+  },
+  {
+    "id": 511,
+    "titre": "On goûte des confitures aux saveurs complètement folles!",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "1:09",
+    "vues": "829 k vues",
+    "publication": "Il y a 6 jours"
+  },
+  {
+    "id": 512,
+    "titre": "J’ai essayé de reproduire un déjeuner vu dans un dessin animé",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "8:39",
+    "vues": "1,3 M vues",
+    "publication": "Il y a 1 mois"
+  },
+  {
+    "id": 513,
+    "titre": "Qui prépare le meilleur smoothie surprise?",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "11:58",
+    "vues": "447 k vues",
+    "publication": "Il y a 2 mois"
+  },
+  {
+    "id": 514,
+    "titre": "Les pires erreurs à éviter quand on fait des pancakes",
+    "categorie": "Cuisine",
+    "createur": "Défi Cuisine",
+    "duree": "3:27",
+    "vues": "233 k vues",
+    "publication": "Il y a 2 semaines"
+  },
+  {
+    "id": 515,
+    "titre": "Défi cuisine : les yeux bandés pour préparer le déjeuner!",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "7:58",
+    "vues": "690 k vues",
+    "publication": "Il y a 1 semaine"
+  },
+  {
+    "id": 516,
+    "titre": "Mon déjeuner est entièrement… bleu! 💙",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "5:51",
+    "vues": "584 k vues",
+    "publication": "Il y a 9 jours"
+  },
+  {
+    "id": 517,
+    "titre": "Je prépare un déjeuner digne d’un champion de sport",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "9:34",
+    "vues": "411 k vues",
+    "publication": "Il y a 3 semaines"
+  },
+  {
+    "id": 518,
+    "titre": "Les 7 meilleures garnitures pour rendre les gaufres incroyables",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "0:18",
+    "vues": "768 k vues",
+    "publication": "Il y a 5 jours"
+  },
+  {
+    "id": 519,
+    "titre": "Peut-on cuisiner un déjeuner avec un mini gaufrier?",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "2:07",
+    "vues": "925 k vues",
+    "publication": "Il y a 2 semaines"
+  },
+  {
+    "id": 520,
+    "titre": "Le défi des ingrédients cachés : sauras-tu les deviner?",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "10:49",
+    "vues": "352 k vues",
+    "publication": "Il y a 1 mois"
+  },
+  {
+    "id": 521,
+    "titre": "J’ai recréé mon déjeuner préféré avec seulement des fruits",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "9:36",
+    "vues": "241 k vues",
+    "publication": "Il y a 8 jours"
+  },
+  {
+    "id": 522,
+    "titre": "Les astuces secrètes pour des œufs brouillés parfaits",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "11:53",
+    "vues": "1,6 M vues",
+    "publication": "Il y a 4 semaines"
+  },
+  {
+    "id": 523,
+    "titre": "Défi : préparer un déjeuner avec ce qu’il reste dans le frigo",
+    "categorie": "Cuisine",
+    "createur": "Défi Cuisine",
+    "duree": "3:24",
+    "vues": "507 k vues",
+    "publication": "Il y a 12 jours"
+  },
+  {
+    "id": 524,
+    "titre": "Les smoothies les plus colorés qu’on ait jamais préparés!",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "8:42",
+    "vues": "398 k vues",
+    "publication": "Il y a 6 jours"
+  },
+  {
+    "id": 525,
+    "titre": "On invente des céréales aux saveurs impossibles!",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "7:55",
+    "vues": "1,2 M vues",
+    "publication": "Il y a 2 mois"
+  },
+  {
+    "id": 526,
+    "titre": "Je prépare un déjeuner inspiré d’un jeu vidéo",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "1:46",
+    "vues": "284 k vues",
+    "publication": "Il y a 1 semaine"
+  },
+  {
+    "id": 527,
+    "titre": "Les 10 décorations les plus amusantes pour des pancakes",
+    "categorie": "Cuisine",
+    "createur": "Les Recettes de Mia",
+    "duree": "4:42",
+    "vues": "391 k vues",
+    "publication": "Il y a 11 jours"
+  },
+  {
+    "id": 528,
+    "titre": "Défi : cuisiner un déjeuner en lançant un dé!",
+    "categorie": "Cuisine",
+    "createur": "Cuisine Express",
+    "duree": "1:09",
+    "vues": "829 k vues",
+    "publication": "Il y a 6 jours"
+  },
+  {
+    "id": 529,
+    "titre": "J’ai essayé les recettes de déjeuner les plus populaires d’Internet",
+    "categorie": "Cuisine",
+    "createur": "Chef Léo",
+    "duree": "8:39",
+    "vues": "1,3 M vues",
+    "publication": "Il y a 1 mois"
+  },
+  {
+    "id": 530,
+    "titre": "Peut-on faire un déjeuner délicieux sans sucre ajouté?",
+    "categorie": "Cuisine",
+    "createur": "FoodLab",
+    "duree": "11:58",
+    "vues": "447 k vues",
+    "publication": "Il y a 2 mois"
+  },
+  {
+    "id": 531,
+    "titre": "Le concours du plus beau bol de yogourt!",
+    "categorie": "Cuisine",
+    "createur": "Défi Cuisine",
+    "duree": "3:27",
+    "vues": "233 k vues",
+    "publication": "Il y a 2 semaines"
   }
 ];
