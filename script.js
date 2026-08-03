@@ -5,6 +5,7 @@ const trainingScreen = document.querySelector("#training-screen");
 const testScreen = document.querySelector("#test-screen");
 const recommendationsScreen = document.querySelector("#recommendations-screen");
 const vacationScreen = document.querySelector("#vacation-screen");
+const blankScreen = document.querySelector("#blank-screen");
 const startButton = document.querySelector("#start-button");
 const readyButton = document.querySelector("#ready-button");
 const trainButton = document.querySelector("#train-button");
@@ -45,6 +46,7 @@ const vacationRecommendDetailsButton = document.querySelector("#vacation-recomme
 const vacationRecommendationsList = document.querySelector("#vacation-recommendations-list");
 const backToVacationStep = document.querySelector("#back-to-vacation-step");
 const backToVacationButton = document.querySelector("#back-to-vacation-button");
+const vacationFinalStepButton = document.querySelector("#vacation-final-step-button");
 const activityMain = document.querySelector("#activity-main");
 const activityIntro = document.querySelector(".activity-intro");
 const testMain = document.querySelector("#test-main");
@@ -477,6 +479,33 @@ function applyVacationTraining() {
   });
 }
 
+function startVacationTraining() {
+  runVacationTrainingButton.disabled = true;
+  vacationRecommendButton.disabled = true;
+  vacationRecommendAction.classList.add("is-hidden");
+  vacationRecommendDetailsButton.disabled = true;
+  vacationTrainingStatus.classList.add("is-hidden");
+  vacationRecommendationsList.classList.add("is-hidden");
+  backToVacationStep.classList.add("is-hidden");
+  vacationTrainingProgressBar.style.transition = "none";
+  vacationTrainingProgressBar.style.width = "0%";
+
+  requestAnimationFrame(() => {
+    vacationTrainingProgressBar.offsetWidth;
+    vacationTrainingProgressBar.style.transition = "";
+    vacationTrainingProgressBar.style.width = "100%";
+  });
+
+  window.setTimeout(() => {
+    applyVacationTraining();
+    vacationTrainingStatus.classList.remove("is-hidden");
+    vacationRecommendAction.classList.remove("is-hidden");
+    vacationRecommendButton.disabled = false;
+    vacationRecommendDetailsButton.disabled = false;
+    vacationRecommendButton.focus();
+  }, 1600);
+}
+
 function renderTestVideo() {
   const video = selectedTestVideos[currentTestIndex];
   testVideoContainer.innerHTML = "";
@@ -488,7 +517,7 @@ function renderTestVideo() {
   retryTestButton.classList.add("is-hidden");
   modelDetailsButton.classList.add("is-hidden");
   nextTestVideoButton.disabled = true;
-  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Prochaine étape: Mes recommandations personnalisées" : "Vidéo suivante";
+  nextTestVideoButton.textContent = currentTestIndex === selectedTestVideos.length - 1 ? "Prochaine étape" : "Vidéo suivante";
 }
 
 function startModelTest() {
@@ -729,35 +758,10 @@ vacationTrainButton.addEventListener("click", () => {
   vacationRecommendationsList.classList.add("is-hidden");
   vacationRecommendationsList.innerHTML = "";
   backToVacationStep.classList.add("is-hidden");
-  runVacationTrainingButton.focus();
+  startVacationTraining();
 });
 
-runVacationTrainingButton.addEventListener("click", () => {
-  runVacationTrainingButton.disabled = true;
-  vacationRecommendButton.disabled = true;
-  vacationRecommendAction.classList.add("is-hidden");
-  vacationRecommendDetailsButton.disabled = true;
-  vacationTrainingStatus.classList.add("is-hidden");
-  vacationRecommendationsList.classList.add("is-hidden");
-  backToVacationStep.classList.add("is-hidden");
-  vacationTrainingProgressBar.style.transition = "none";
-  vacationTrainingProgressBar.style.width = "0%";
-
-  requestAnimationFrame(() => {
-    vacationTrainingProgressBar.offsetWidth;
-    vacationTrainingProgressBar.style.transition = "";
-    vacationTrainingProgressBar.style.width = "100%";
-  });
-
-  window.setTimeout(() => {
-    applyVacationTraining();
-    vacationTrainingStatus.classList.remove("is-hidden");
-    vacationRecommendAction.classList.remove("is-hidden");
-    vacationRecommendButton.disabled = false;
-    vacationRecommendDetailsButton.disabled = false;
-    vacationRecommendButton.focus();
-  }, 1600);
-});
+runVacationTrainingButton.addEventListener("click", startVacationTraining);
 
 vacationRecommendButton.addEventListener("click", () => {
   renderVacationRecommendations();
@@ -770,6 +774,11 @@ backToVacationButton.addEventListener("click", () => {
   vacationScreen.classList.remove("is-hidden");
   vacationMain.classList.remove("is-hidden");
   vacationTrainButton.focus();
+});
+
+vacationFinalStepButton.addEventListener("click", () => {
+  vacationTrainingScreen.classList.add("is-hidden");
+  blankScreen.classList.remove("is-hidden");
 });
 
 window.getTrainingResponses = getTrainingResponses;

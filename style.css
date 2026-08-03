@@ -163,6 +163,10 @@ input {
   min-height: 100vh;
 }
 
+.blank-screen {
+  min-height: 100vh;
+}
+
 .training-content {
   display: grid;
   justify-items: center;
