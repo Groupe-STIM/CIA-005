@@ -163,6 +163,12 @@ input {
   min-height: 100vh;
 }
 
+.echo-screen,
+.open-screen,
+.open-results-screen {
+  min-height: 100vh;
+}
+
 .blank-screen {
   min-height: 100vh;
 }
@@ -324,6 +330,27 @@ h1 {
   max-width: none;
 }
 
+.echo-intro-block {
+  text-align: center;
+}
+
+.echo-intro,
+.echo-prompt {
+  max-width: none;
+  text-align: center;
+}
+
+.echo-scenario-title {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.echo-prompt {
+  margin-bottom: 18px;
+}
+
 .progress-card {
   min-width: 150px;
   padding: 16px 18px;
@@ -394,6 +421,13 @@ h1 {
 }
 
 .single-video-list {
+  display: grid;
+  gap: 12px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.echo-video-list {
   display: grid;
   gap: 12px;
   max-width: 980px;
@@ -574,6 +608,73 @@ h1 {
   grid-template-columns: 1fr;
 }
 
+.echo-video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 6px solid transparent;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 4px 18px rgba(24, 32, 47, 0.05);
+}
+
+.echo-video-card.is-watch {
+  border-left-color: var(--watch);
+}
+
+.echo-video-card.is-recommendation {
+  grid-template-columns: 1fr;
+}
+
+.echo-video-card h3 {
+  margin-bottom: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.echo-video-card .category-pill {
+  justify-self: start;
+}
+
+.echo-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 12px;
+}
+
+.echo-recommendation-column h2 {
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.echo-comparison-list {
+  display: grid;
+  gap: 12px;
+}
+
+.echo-comparison-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  min-height: 78px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 4px 18px rgba(24, 32, 47, 0.05);
+}
+
+.echo-comparison-card h3 {
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
 .video-topline {
   display: flex;
   align-items: center;
@@ -609,6 +710,14 @@ h1 {
 
 .category-sport {
   background: #d9f99d;
+}
+
+.category-positif {
+  background: #d8f1e8;
+}
+
+.category-negatif {
+  background: #fee2e2;
 }
 
 .video-card h3 {
@@ -706,6 +815,18 @@ h1 {
   }
 
   .video-card {
+    grid-template-columns: 1fr;
+  }
+
+  .echo-video-card {
+    grid-template-columns: 1fr;
+  }
+
+  .echo-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .echo-comparison-card {
     grid-template-columns: 1fr;
   }
 

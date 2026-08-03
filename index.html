@@ -172,6 +172,10 @@
               </svg>
             </button>
           </div>
+          <div class="training-progress is-hidden" id="vacation-recommendation-progress" aria-label="Progression de la recommandation">
+            <div class="training-progress-bar recommendation-progress-bar" id="vacation-recommendation-progress-bar"></div>
+          </div>
+          <p class="training-status is-hidden" id="vacation-recommendation-status">L'IA réfléchit</p>
         </div>
         <section class="video-list is-hidden" id="vacation-recommendations-list" aria-label="Nouvelles recommandations"></section>
         <section class="next-step is-hidden" id="back-to-vacation-step">
@@ -181,9 +185,99 @@
       </div>
     </section>
 
-    <section class="blank-screen is-hidden" id="blank-screen" aria-label="Page blanche"></section>
+    <section class="echo-screen is-hidden" id="echo-screen">
+      <header class="app-header">
+        <div class="echo-intro-block">
+          <h1>Ma chambre d'écho</h1>
+          <p class="intro echo-intro">Les algorithmes de recommandation basés sur l'IA te montrent de plus en plus ce qui t'intéresse. Par contre, à force de voir toujours les mêmes types de contenus, tu finis par croire que c'est la seule façon de voir le monde.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="echo-ready-button">Je suis prêt</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main is-hidden" id="echo-main">
+        <h2 class="echo-scenario-title" id="echo-scenario-title">Scénario 1: L'enfant</h2>
+        <p class="intro echo-prompt" id="echo-prompt">Tu es un enfant passionné par les jeux vidéo. Choisis les vidéos que tu regarderais à ce sujet.</p>
+        <section class="echo-video-list" id="echo-training-list" aria-label="Vidéos à choisir"></section>
+        <section class="next-step">
+          <button class="primary-button" type="button" id="echo-final-step-button">Prochaine étape</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="blank-screen is-hidden" id="blank-screen">
+      <header class="app-header">
+        <div class="echo-intro-block">
+          <h1>Ma chambre d'écho</h1>
+          <p class="intro echo-intro">Dépendamment de qui je suis, voici les recommandations que je recevrai.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="echo-run-recommendations-button">Recommande des vidéos</button>
+          </div>
+          <div class="training-progress is-hidden" id="echo-recommendation-progress" aria-label="Progression de la recommandation">
+            <div class="training-progress-bar recommendation-progress-bar" id="echo-recommendation-progress-bar"></div>
+          </div>
+          <p class="training-status is-hidden" id="echo-recommendation-status">L'IA réfléchit</p>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="echo-comparison is-hidden" id="echo-comparison">
+          <section class="echo-recommendation-column" aria-labelledby="child-recommendations-title">
+            <h2 id="child-recommendations-title">L'enfant</h2>
+            <div class="echo-comparison-list" id="echo-child-recommendations"></div>
+          </section>
+          <section class="echo-recommendation-column" aria-labelledby="parent-recommendations-title">
+            <h2 id="parent-recommendations-title">Le parent</h2>
+            <div class="echo-comparison-list" id="echo-parent-recommendations"></div>
+          </section>
+        </section>
+        <section class="next-step is-hidden" id="echo-comparison-next-step">
+          <button class="primary-button" type="button" id="echo-comparison-next-button">Prochaine étape</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="open-screen is-hidden" id="open-screen">
+      <header class="app-header">
+        <div class="echo-intro-block">
+          <h1>Ma chambre d'écho</h1>
+          <p class="intro echo-intro">Les algorithmes de recommandation basés sur l'IA te montrent de plus en plus ce qui t'intéresse. Par contre, à force de voir toujours les mêmes types de contenus, tu finis par croire que c'est la seule façon de voir le monde.</p>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <h2 class="echo-scenario-title">Scénario 3: Restons ouverts</h2>
+        <p class="intro echo-prompt">Tu es quelqu'un d'ouvert qui est intéressé à comprendre toutes sortes de points de vue. Choisis les vidéos que tu regarderais à ce sujet.</p>
+        <section class="echo-video-list" id="open-training-list" aria-label="Vidéos à choisir"></section>
+        <section class="next-step">
+          <button class="primary-button" type="button" id="open-final-step-button">Prochaine étape</button>
+        </section>
+      </main>
+    </section>
+
+    <section class="open-results-screen is-hidden" id="open-results-screen">
+      <header class="app-header">
+        <div class="echo-intro-block">
+          <h1>Ma chambre d'écho</h1>
+          <p class="intro echo-intro">Dépendamment de qui je suis, voici les recommandations que je recevrai.</p>
+          <div class="intro-actions">
+            <button class="primary-button" type="button" id="open-run-recommendations-button">Recommande des vidéos</button>
+          </div>
+          <div class="training-progress is-hidden" id="open-recommendation-progress" aria-label="Progression de la recommandation">
+            <div class="training-progress-bar recommendation-progress-bar" id="open-recommendation-progress-bar"></div>
+          </div>
+          <p class="training-status is-hidden" id="open-recommendation-status">L'IA réfléchit</p>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section class="echo-comparison-list is-hidden" id="open-recommendations-list" aria-label="Recommandations du scénario ouvert"></section>
+      </main>
+    </section>
 
     <script src="data.js"></script>
+    <script src="data2.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
