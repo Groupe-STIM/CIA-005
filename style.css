@@ -443,6 +443,23 @@ h1 {
   padding: 28px 0 10px;
 }
 
+.back-step {
+  display: flex;
+  position: fixed;
+  z-index: 4;
+  right: 24px;
+  bottom: 24px;
+  justify-content: flex-end;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.echo-intro-block .training-progress {
+  margin-top: 18px;
+}
+
 .model-result {
   max-width: 980px;
   margin: 18px auto 0;
@@ -844,6 +861,11 @@ h1 {
   .app-main {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .back-step {
+    right: 16px;
+    bottom: 16px;
   }
 
   h1 {

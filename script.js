@@ -28,6 +28,8 @@ const closeModelDetailsButton = document.querySelector("#close-model-details-but
 const nextTestVideoButton = document.querySelector("#next-test-video-button");
 const runRecommendationsButton = document.querySelector("#run-recommendations-button");
 const recommendationsDetailsButton = document.querySelector("#recommendations-details-button");
+const recommendationsBackStep = document.querySelector("#recommendations-back-step");
+const backToTestButton = document.querySelector("#back-to-test-button");
 const recommendationProgress = document.querySelector("#recommendation-progress");
 const recommendationProgressBar = document.querySelector("#recommendation-progress-bar");
 const recommendationStatus = document.querySelector("#recommendation-status");
@@ -35,6 +37,8 @@ const recommendationsList = document.querySelector("#recommendations-list");
 const recommendationsIntro = document.querySelector(".recommendations-intro");
 const vacationStep = document.querySelector("#vacation-step");
 const vacationButton = document.querySelector("#vacation-button");
+const vacationBackStep = document.querySelector("#vacation-back-step");
+const backToRecommendationsButton = document.querySelector("#back-to-recommendations-button");
 const vacationReadyButton = document.querySelector("#vacation-ready-button");
 const vacationMain = document.querySelector("#vacation-main");
 const vacationVideoList = document.querySelector("#vacation-video-list");
@@ -54,11 +58,13 @@ const backToVacationStep = document.querySelector("#back-to-vacation-step");
 const backToVacationButton = document.querySelector("#back-to-vacation-button");
 const vacationFinalStepButton = document.querySelector("#vacation-final-step-button");
 const echoReadyButton = document.querySelector("#echo-ready-button");
+const echoBackStep = document.querySelector("#echo-back-step");
 const echoMain = document.querySelector("#echo-main");
 const echoScenarioTitle = document.querySelector("#echo-scenario-title");
 const echoPrompt = document.querySelector("#echo-prompt");
 const echoTrainingList = document.querySelector("#echo-training-list");
 const echoFinalStepButton = document.querySelector("#echo-final-step-button");
+const backToVacationTrainingButton = document.querySelector("#back-to-vacation-training-button");
 const echoRunRecommendationsButton = document.querySelector("#echo-run-recommendations-button");
 const echoRecommendationProgress = document.querySelector("#echo-recommendation-progress");
 const echoRecommendationProgressBar = document.querySelector("#echo-recommendation-progress-bar");
@@ -383,10 +389,8 @@ function getWeightedRecommendations(count = 5) {
     .filter((video) => !recommendedVideoIds.has(video.id))
     .map((video) => ({
       video,
-      prediction: predictChoice(video),
       score: getCategoryRecommendationScore(trainedModel?.[video.categorie] ?? { watch: 0, skip: 0 })
     }))
-    .filter((item) => item.prediction.choice === "watch")
     .filter((item) => item.score > 0);
 
   if (eligibleVideos.length === 0) {
@@ -978,6 +982,7 @@ nextTestVideoButton.addEventListener("click", () => {
     vacationStep.classList.add("is-hidden");
     vacationButton.disabled = true;
     recommendationsScreen.classList.remove("is-hidden");
+    recommendationsBackStep.classList.remove("is-hidden");
     return;
   }
 
@@ -986,6 +991,7 @@ nextTestVideoButton.addEventListener("click", () => {
 });
 
 runRecommendationsButton.addEventListener("click", () => {
+  recommendationsBackStep.classList.add("is-hidden");
   runRecommendationsButton.disabled = true;
   recommendationsIntro.textContent = "D'après ce que j'ai appris de toi, je peux te faire des recommandations de vidéos qui pourront te plaire.";
   recommendationsList.classList.add("is-hidden");
@@ -1013,13 +1019,31 @@ runRecommendationsButton.addEventListener("click", () => {
   }, 3000);
 });
 
+backToTestButton.addEventListener("click", () => {
+  recommendationsScreen.classList.add("is-hidden");
+  recommendationsBackStep.classList.add("is-hidden");
+  testScreen.classList.remove("is-hidden");
+  nextTestVideoButton.focus();
+});
+
 vacationButton.addEventListener("click", () => {
   recommendationsScreen.classList.add("is-hidden");
+  recommendationsBackStep.classList.add("is-hidden");
   vacationScreen.classList.remove("is-hidden");
+  vacationBackStep.classList.remove("is-hidden");
   vacationReadyButton.focus();
 });
 
+backToRecommendationsButton.addEventListener("click", () => {
+  vacationScreen.classList.add("is-hidden");
+  vacationBackStep.classList.add("is-hidden");
+  recommendationsScreen.classList.remove("is-hidden");
+  recommendationsBackStep.classList.add("is-hidden");
+  vacationButton.focus();
+});
+
 vacationReadyButton.addEventListener("click", () => {
+  vacationBackStep.classList.add("is-hidden");
   vacationReadyButton.classList.add("is-hidden");
   renderVacationVideos();
   vacationMain.classList.remove("is-hidden");
@@ -1047,6 +1071,7 @@ vacationVideoList.addEventListener("change", (event) => {
 
 vacationTrainButton.addEventListener("click", () => {
   vacationScreen.classList.add("is-hidden");
+  vacationBackStep.classList.add("is-hidden");
   vacationTrainingScreen.classList.remove("is-hidden");
   runVacationTrainingButton.disabled = false;
   vacationTrainingProgressBar.style.width = "0%";
@@ -1083,6 +1108,7 @@ vacationRecommendButton.addEventListener("click", () => {
 backToVacationButton.addEventListener("click", () => {
   vacationTrainingScreen.classList.add("is-hidden");
   vacationScreen.classList.remove("is-hidden");
+  vacationBackStep.classList.add("is-hidden");
   vacationMain.classList.remove("is-hidden");
   vacationTrainButton.focus();
 });
@@ -1090,10 +1116,19 @@ backToVacationButton.addEventListener("click", () => {
 vacationFinalStepButton.addEventListener("click", () => {
   vacationTrainingScreen.classList.add("is-hidden");
   echoScreen.classList.remove("is-hidden");
+  echoBackStep.classList.remove("is-hidden");
   echoReadyButton.focus();
 });
 
+backToVacationTrainingButton.addEventListener("click", () => {
+  echoScreen.classList.add("is-hidden");
+  echoBackStep.classList.add("is-hidden");
+  vacationTrainingScreen.classList.remove("is-hidden");
+  vacationFinalStepButton.focus();
+});
+
 echoReadyButton.addEventListener("click", () => {
+  echoBackStep.classList.add("is-hidden");
   echoReadyButton.classList.add("is-hidden");
   renderEchoTrainingVideos();
   echoPhase = "child";
@@ -1147,6 +1182,7 @@ echoFinalStepButton.addEventListener("click", () => {
   echoChildRecommendations.innerHTML = "";
   echoParentRecommendations.innerHTML = "";
   echoScreen.classList.add("is-hidden");
+  echoBackStep.classList.add("is-hidden");
   blankScreen.classList.remove("is-hidden");
   echoRunRecommendationsButton.focus();
 });
