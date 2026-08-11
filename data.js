@@ -163,7 +163,7 @@ const trainingVideos = [
   },
   {
     "id": 19,
-    "titre": "J'ai construit toute ma cour d'école dans Minecraft",
+    "titre": "J'ai construit toute ma cour d'école 🏫 dans Minecraft",
     "categorie": "Jeux vidéo",
     "createur": "PixelMax",
     "duree": "18:42",
@@ -189,15 +189,6 @@ const trainingVideos = [
     "publication": "Il y a 2 mois"
   },
   {
-    "id": 22,
-    "titre": "J'ai laissé une IA décider où j'atterris dans Fortnite pendant 20 parties",
-    "categorie": "Jeux vidéo",
-    "createur": "PlayLab",
-    "duree": "16:08",
-    "vues": "967 k vues",
-    "publication": "Il y a 6 jours"
-  },
-  {
     "id": 23,
     "titre": "Les 10 détails cachés que je n'avais jamais remarqués dans Roblox",
     "categorie": "Jeux vidéo",
@@ -217,7 +208,7 @@ const trainingVideos = [
   },
   {
     "id": 25,
-    "titre": "Soccer - Je tente le défi des 100 rebonds... sans faire tomber le ballon",
+    "titre": "Soccer - Je tente le défi des 100 rebonds... sans faire tomber le ballon ⚽",
     "categorie": "Sport",
     "createur": "Défi Max",
     "duree": "26:50:00",
@@ -226,7 +217,7 @@ const trainingVideos = [
   },
   {
     "id": 26,
-    "titre": "Ce geste technique au hockey a complètement changé ma façon de jouer",
+    "titre": "Ce geste technique au hockey a complètement changé ma façon de jouer 🏒",
     "categorie": "Sport",
     "createur": "Coach Alex",
     "duree": "1:56",
@@ -244,7 +235,7 @@ const trainingVideos = [
   },
   {
     "id": 28,
-    "titre": "Pourquoi les joueurs professionnels de basketball changent-ils souvent de chaussures ?",
+    "titre": "Pourquoi les joueurs professionnels de basketball changent-ils souvent de chaussures ? 🏀",
     "categorie": "Sport",
     "createur": "SportLab",
     "duree": "2:29",
@@ -253,7 +244,7 @@ const trainingVideos = [
   },
   {
     "id": 29,
-    "titre": "Le plus beau but de hockey de la saison... filmé sous tous les angles",
+    "titre": "Le plus beau but de hockey de la saison... filmé sous tous les angles 🥅",
     "categorie": "Sport",
     "createur": "Zone Sport",
     "duree": "1:37",
@@ -268,10 +259,28 @@ const trainingVideos = [
     "duree": "3:54",
     "vues": "397 k vues",
     "publication": "Il y a 1 semaine"
+  },
+  {
+    "id": 321,
+    "titre": "Je tente de battre mon père à FIFA ⚽ pour la première fois avec ce but INCROYABLE",
+    "categorie": "Jeux vidéo",
+    "createur": "Sam Gaming",
+    "duree": "12:31",
+    "vues": "609 k vues",
+    "publication": "Il y a 4 jours"
   }
 ];
 
 const testVideos = [
+  {
+    "id": 22,
+    "titre": "J'ai laissé une IA décider où j'atterris dans Fortnite pendant 20 parties",
+    "categorie": "Jeux vidéo",
+    "createur": "PlayLab",
+    "duree": "16:08",
+    "vues": "967 k vues",
+    "publication": "Il y a 6 jours"
+  },
   {
     "id": 31,
     "titre": "Le renard qui visitait le même jardin chaque soir",
@@ -2881,15 +2890,6 @@ const testVideos = [
     "duree": "6:44",
     "vues": "742 k vues",
     "publication": "Il y a 5 mois"
-  },
-  {
-    "id": 321,
-    "titre": "Je tente de battre mon père à FIFA pour la première fois",
-    "categorie": "Jeux vidéo",
-    "createur": "Sam Gaming",
-    "duree": "12:31",
-    "vues": "609 k vues",
-    "publication": "Il y a 4 jours"
   },
   {
     "id": 322,
