@@ -1136,8 +1136,8 @@ echoReadyButton.addEventListener("click", () => {
   echoParentModel = null;
   echoChildRecommendedVideoIds.clear();
   echoParentRecommendedVideoIds.clear();
-  echoScenarioTitle.textContent = "Scénario 1 : L'enfant";
-  echoPrompt.textContent = "Tu es un enfant passionné par les jeux vidéo. Choisis les vidéos que tu regarderais à ce sujet.";
+  echoScenarioTitle.textContent = "Scénario 1 : La personne passionnée";
+  echoPrompt.textContent = "Tu es une personne passionnée par les jeux vidéo. Choisis les vidéos que tu regarderais à ce sujet.";
   echoMain.classList.remove("is-hidden");
   document.querySelector('#echo-training-list input[type="checkbox"]')?.focus();
 });
@@ -1168,8 +1168,8 @@ echoFinalStepButton.addEventListener("click", () => {
   if (echoPhase === "child") {
     echoChildModel = echoModel;
     echoPhase = "parent";
-    echoScenarioTitle.textContent = "Scénario 2 : Le parent";
-    echoPrompt.textContent = "Tu es un parent inquiet par les jeux vidéo de ton enfant. Choisis les vidéos que tu regarderais à ce sujet.";
+    echoScenarioTitle.textContent = "Scénario 2 : La personne préoccupée";
+    echoPrompt.textContent = "Tu es une personne préoccupée par les effets négatifs des jeux vidéo sur la santé de jeunes. Choisis les vidéos que tu regarderais à ce sujet.";
     resetEchoChoices();
     renderEchoTrainingVideos();
     document.querySelector('#echo-training-list input[type="checkbox"]')?.focus();
